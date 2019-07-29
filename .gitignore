@@ -106,3 +106,4 @@ venv.bak/
 # ºöÂÔµÄÎÄ¼ş
 .idea/
 venv/
+static/
