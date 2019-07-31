@@ -1413,19 +1413,19 @@ textarea:focus {
     z-index: 0;
 }
 .bg-image-1{
-  background-image: url("../../assets/img/bg/bg-1.jpg");
+  background-image: url("../img/bg/bg-1.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .bg-image-2{
-  background-image: url("../../assets/img/bg/bg-2.jpg");
+  background-image: url("../img/bg/bg-2.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .bg-image-3{
-  background-image: url("../../assets/img/bg/breadcrumb.jpg");
+  background-image: url("../img/bg/breadcrumb.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
