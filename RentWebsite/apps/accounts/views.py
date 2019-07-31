@@ -6,4 +6,4 @@ def test(request):
     return HttpResponse("功能还在测试中")
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "index1_origin.html")

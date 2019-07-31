@@ -9,8 +9,7 @@ def logtest(request):
     return HttpResponse('日志测试')
 
 def index(request):
-    return HttpResponse('这是index页面')
-    # return render(request,"index.html")
+    return render(request, "index1_origin.html")
+
 def index2(request):
-    # return render(request,"index2.html")
-    return HttpResponse('这是index2页面')
+    return render(request, "repo/index2_origin.html")

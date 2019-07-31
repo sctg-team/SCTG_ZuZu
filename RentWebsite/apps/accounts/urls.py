@@ -18,18 +18,21 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from . import views
 
-
 urlpatterns = [
-    # url(r'^accounts', include('apps.accounts.urls',namespace='accounts')),
     # 注册
-    url(r'register/$', views.test, name="register"),
+    url(r'register/$', views.index, name="register"),
     # 登录
     url(r'login/$', views.index, name="login"),
     # 退出
     url(r'logout/$', views.test, name="logout"),
     # 忘记密码
-    url(r'password/forget/$', views.test, name="password_forget"),
+    url(r'password/forget/$', views.test, name="passwd_forget"),
     # 重置密码
-    url(r'password/reset/token$', views.test, name="password_reset"),
-
+    url(r'password/reset/$', views.test, name="passwd_reset"),
+    # 帐户信息
+    url(r'profile/$', views.test, name="profile"),
+    # 用户列表
+    url(r'users/$', views.test, name="user_list"),
+    # 添加用户
+    url(r'user/$', views.test, name="user_add"),
 ]

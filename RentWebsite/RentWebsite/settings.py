@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 添加应用到INSTALLED_APPS
     'apps.accounts',
     'apps.apis',
     'apps.usercenter',
-
 ]
 
 MIDDLEWARE = [
@@ -55,9 +55,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'RentWebsite.urls'
 
+# 配置html文件的查找路径
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 整个项目共用一套html，所以直接放在项目根目录
         'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
