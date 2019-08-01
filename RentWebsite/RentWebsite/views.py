@@ -12,4 +12,4 @@ def index(request):
     return render(request, "index1_origin.html")
 
 def index2(request):
-    return render(request, "repo/index2_origin.html")
+    return render(request, "repo/index2.html")
