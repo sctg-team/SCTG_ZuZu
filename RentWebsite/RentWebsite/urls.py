@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
+from django.conf.urls import url,include,handler404,handler500
 from django.contrib import admin
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.views import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +28,7 @@ urlpatterns = [
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
     url(r'^apis/',include('apps.apis.urls',namespace='apis')),
     url(r'^uc/',include('apps.usercenter.urls',namespace='uc')),
-]
+    url(r'^django_view/',include('apps.django_view.urls',namespace='django_view')),
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = views.my404

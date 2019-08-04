@@ -24,8 +24,9 @@ SECRET_KEY = 'o*gn_lk1g&0f331!c^u&vu9j0_5xw)yuma4aij(un#2j3)$$&e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.apis',
     'apps.usercenter',
+    'apps.django_view',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +127,7 @@ USE_TZ = True
 
 # 静态文件的查找路径
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(os.path.join(BASE_DIR, "static"))
 ]
@@ -236,3 +239,7 @@ LOGGING = {
         },
     }
 }
+
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
