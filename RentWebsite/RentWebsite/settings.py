@@ -132,6 +132,10 @@ STATICFILES_DIRS = [
     os.path.join(os.path.join(BASE_DIR, "static"))
 ]
 
+# 自定义用户model： "应用名.Model名
+AUTH_USER_MODEL = 'accounts.TestUser'
+# 注意：如果扩展了User一定需要指定AUTH_USER_MODEL
+
 
 # 配置日志
 LOG_ROOT = os.path.join(BASE_DIR, 'logs')
@@ -240,6 +244,5 @@ LOGGING = {
     }
 }
 
-
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+FontPath = os.path.join(BASE_DIR,"static/fonts/")
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')

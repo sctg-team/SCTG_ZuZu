@@ -20,11 +20,11 @@ from . import views
 
 urlpatterns = [
     # 注册
-    url(r'register/$', views.index, name="register"),
+    url(r'register/$', views.Register.as_view(), name="register"),
     # 登录
-    url(r'login/$', views.index, name="login"),
+    url(r'login/$', views.Login.as_view(), name="login"),
     # 退出
-    url(r'logout/$', views.test, name="logout"),
+    url(r'logout/$', views.logout, name="logout"),
     # 忘记密码
     url(r'password/forget/$', views.test, name="passwd_forget"),
     # 重置密码
