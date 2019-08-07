@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# BASE_DIR => 项目根目录 => RentWebsite/
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -61,8 +61,9 @@ ROOT_URLCONF = 'RentWebsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 整个项目共用一套html，所以直接放在项目根目录
+        # 整个项目共用一套html，所以直接放在项目根目录，直接去项目根目录下的templates目录下找
         'DIRS': [os.path.join(BASE_DIR, "templates")],
+        # True => 去INSTALLED_APPS中写的app目录下的templats目录下找
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,11 +126,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-# 静态文件的查找路径
+# 如果一个url中有以STATIC_URL开头，那么它就会去STATICFILES_DIRS指定的路径下找文件
 STATIC_URL = '/static/'
 
+# 静态文件的查找路径 => 去根目录下的static文件夹下找
 STATICFILES_DIRS = [
-    os.path.join(os.path.join(BASE_DIR, "static"))
+    os.path.join(os.path.join(BASE_DIR, "static")),
 ]
 
 # 自定义用户model： "应用名.Model名
