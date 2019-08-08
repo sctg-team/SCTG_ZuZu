@@ -20,6 +20,7 @@ def index(request):
 class Register(View):
     def get(self, request):
         form = RegisterForm()
+        # return render(request, "accounts/register.html", {"form": form})
         return render(request, "accounts/register.html", {"form": form})
 
     # Ajax提交表单
