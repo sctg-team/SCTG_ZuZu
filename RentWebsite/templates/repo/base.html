@@ -151,20 +151,7 @@
                                         </div>
                                     </div>
                                     <!-- 购物车 dropdown end-->
-                                    <!-- USD dropdown start-->
-{#                                    <div class="header-currency">#}
-{#                                        <span class="digit">USD <i class="ti-angle-down"></i></span>#}
-{#                                        <div class="dollar-submenu">#}
-{#                                            <ul>#}
-{#                                                <li><a href="#">$ USD</a></li>#}
-{#                                                <li><a href="#">€ EUR</a></li>#}
-{#                                                <li><a href="#">£ GBP</a></li>#}
-{#                                                <li><a href="#">₹ INR</a></li>#}
-{#                                                <li><a href="#">¥ JPY</a></li>#}
-{#                                            </ul>#}
-{#                                        </div>#}
-{#                                    </div>#}
-                                    <!-- USD dropdown end-->
+
                                     <!-- 个人中心 dropdown start-->
                                     <li class="dropdown">
                                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -188,8 +175,6 @@
                                     <!-- 个人中心 dropdown end-->
                                 {% else %}
                                     <div style="float:right; margin-top:15px;margin-left:10px;">
-{#                                        <a href="{% url 'accounts:login' %}">登录</a>|<a#}
-{#                                            href="{% url 'accounts:register' %}">注册</a>#}
                                         <a href="{% url 'accounts:login' %}">登录</a>|
                                         <a href="{% url 'accounts:register' %}">注册</a>
                                     </div>
