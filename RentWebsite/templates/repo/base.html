@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sabujcha - Matcha eCommerce Bootstrap4 Template</title>
+    <title>租东西的网站</title>
     <meta name="description" content="">
     <meta name="robots" content="noindex, follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -152,18 +152,18 @@
                                     </div>
                                     <!-- 购物车 dropdown end-->
                                     <!-- USD dropdown start-->
-{#                                    <div class="header-currency">#}
-{#                                        <span class="digit">USD <i class="ti-angle-down"></i></span>#}
-{#                                        <div class="dollar-submenu">#}
-{#                                            <ul>#}
-{#                                                <li><a href="#">$ USD</a></li>#}
-{#                                                <li><a href="#">€ EUR</a></li>#}
-{#                                                <li><a href="#">£ GBP</a></li>#}
-{#                                                <li><a href="#">₹ INR</a></li>#}
-{#                                                <li><a href="#">¥ JPY</a></li>#}
-{#                                            </ul>#}
-{#                                        </div>#}
-{#                                    </div>#}
+                                    {#                                    <div class="header-currency">#}
+                                    {#                                        <span class="digit">USD <i class="ti-angle-down"></i></span>#}
+                                    {#                                        <div class="dollar-submenu">#}
+                                    {#                                            <ul>#}
+                                    {#                                                <li><a href="#">$ USD</a></li>#}
+                                    {#                                                <li><a href="#">€ EUR</a></li>#}
+                                    {#                                                <li><a href="#">£ GBP</a></li>#}
+                                    {#                                                <li><a href="#">₹ INR</a></li>#}
+                                    {#                                                <li><a href="#">¥ JPY</a></li>#}
+                                    {#                                            </ul>#}
+                                    {#                                        </div>#}
+                                    {#                                    </div>#}
                                     <!-- USD dropdown end-->
                                     <!-- 个人中心 dropdown start-->
                                     <li class="dropdown">
@@ -187,11 +187,10 @@
                                     </li>
                                     <!-- 个人中心 dropdown end-->
                                 {% else %}
-                                    <div style="float:right; margin-top:15px;margin-left:10px;">
-{#                                        <a href="{% url 'accounts:login' %}">登录</a>|<a#}
-{#                                            href="{% url 'accounts:register' %}">注册</a>#}
-                                        <a href="{% url 'accounts:login' %}">登录</a>|
-                                        <a href="{% url 'accounts:register' %}">注册</a>
+                                    <div class="header-currency">
+                                        <span class="digit"><a href="{% url 'accounts:login' %}">登录</a></span>
+                                        <b>|</b>
+                                        <span class="digit"><a href="{% url 'accounts:register' %}">注册</a></span>
                                     </div>
                                 {% endif %}
                                 <!-- user login dropdown end -->

@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^apis/',include('apps.apis.urls',namespace='apis')),
     url(r'^uc/',include('apps.usercenter.urls',namespace='uc')),
     url(r'^django_view/',include('apps.django_view.urls',namespace='django_view')),
+    url(r'^test/$', views.test, name='test'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler404 = views.my404
