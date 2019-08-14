@@ -15,7 +15,7 @@ def test(request):
     return HttpResponse("功能还在测试中")
 
 def index(request):
-    return render(request, "index1_origin.html")
+    return render(request, "bak/index1_origin.html")
 
 class Register(View):
     def get(self, request):

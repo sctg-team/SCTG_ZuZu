@@ -42,9 +42,11 @@ class RegisterForm(forms.ModelForm):
             return self.cleaned_data
         else:
             raise ValidationError("两次密码不一致")
+
+
+# 用户登录
 # 因为是登录功能，所以不适合ModelForm。
 # ModelForm对于unique字段会检查是否已经存在，如果存在，is_valid结果会为False
-
 class LoginForm(forms.Form):
     username = forms.CharField(label="用户名", max_length="24",
                                widget=widgets.TextInput(attrs={"class": "form-control", "placeholder": "用户名"}))

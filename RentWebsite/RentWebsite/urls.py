@@ -22,9 +22,11 @@ from django.contrib.staticfiles.views import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^base/$', views.base,name='base'),
     url(r'^logtest/$', views.logtest, name='logtest'),
     url(r'^index/',views.index,name='index1'),
     url(r'^index2/',views.index2,name='index2'),
+    # 用户登录注册
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
     url(r'^apis/',include('apps.apis.urls',namespace='apis')),
     url(r'^uc/',include('apps.usercenter.urls',namespace='uc')),
