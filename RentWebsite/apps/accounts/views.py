@@ -66,8 +66,8 @@ class Login(View):
             # return redirect(reverse('accounts:index'))
             return redirect(request.session["next"])
         form = LoginForm()
-        # 设置下一跳转地址
         # request.session["next"] = request.GET.get('next', reverse('accounts:login'))
+        # 设置下一跳转地址(如果get有next,如果没有跳转到repo: index)
         request.session["next"] = request.GET.get('next', reverse('index2'))
         return render(request, "accounts/login.html", {"form": form})
 
@@ -100,7 +100,7 @@ class Login(View):
 
 @login_required
 def index(requeset):
-    return render(requeset,"accounts/login.html")
+    return redirect(requeset, reverse('accounts:login'))
 
 
 def logout(request):

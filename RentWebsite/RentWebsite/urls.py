@@ -23,7 +23,7 @@ from django.contrib.staticfiles.views import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^',include('apps.accounts.urls',namespace="accounts")),
+    # url(r'^',include('apps.accounts.urls',namespace="accounts")),
 
     url(r'^base/$', views.base,name='base'),
     url(r'^logtest/$', views.logtest, name='logtest'),
