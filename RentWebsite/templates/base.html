@@ -44,7 +44,7 @@
                                         <li class="top-hover"><a href="bak/index1_origin.html">home</a>
                                             <ul class="submenu">
                                                 <li><a href="bak/index1_origin.html">home version 1</a></li>
-                                                <li><a href="repo/index2_origin.html">home version 2</a></li>
+                                                <li><a href="bak/index2_origin.html">home version 2</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="bak/about-us.html">about</a></li>
@@ -191,9 +191,10 @@
                                     <!-- 个人中心 dropdown end-->
                                 {% else %}
                                     <div class="header-currency">
-                                        <span class="digit"><a href="{% url 'accounts:login' %}">登录</a></span>
+{#                                    accounts:login#}
+                                        <span class="digit"><a href="{% url 'test' %}">登录</a></span>
                                         <b>|</b>
-                                        <span class="digit"><a href="{% url 'accounts:register' %}">注册</a></span>
+                                        <span class="digit"><a href="{% url 'test' %}">注册</a></span>
                                     </div>
                                 {% endif %}
                                 <!-- user login dropdown end -->
@@ -208,7 +209,7 @@
                                 <li><a href="#">HOME</a>
                                     <ul>
                                         <li><a href="bak/index1_origin.html">home version 1</a></li>
-                                        <li><a href="repo/index2_origin.html">home version 2</a></li>
+                                        <li><a href="bak/index2_origin.html">home version 2</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">pages</a>

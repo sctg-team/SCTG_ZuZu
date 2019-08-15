@@ -63,10 +63,11 @@ class Login(View):
         # 如果已登录，则直接跳转到index页面
         # request.user 表示的是当前登录的用户对象,没有登录 `匿名用户`
         if request.user.is_authenticated:
-            return redirect(reverse('accounts:login'))
+            # return redirect(reverse('accounts:index'))
+            return redirect(request.session["next"])
         form = LoginForm()
-        # 设置下一跳转地址
-        request.session["next"] = request.GET.get('next', reverse('accounts:login'))
+        # 设置下一跳转地址(如果get有next,如果没有跳转到repo: index)
+        request.session["next"] = request.GET.get('next', reverse('index2'))
         return render(request, "accounts/login.html", {"form": form})
 
     def post(self, request):
@@ -98,7 +99,7 @@ class Login(View):
 
 @login_required
 def index(requeset):
-    return render(requeset,"accounts/login.html")
+    return redirect(requeset, reverse('accounts:login'))
 
 def logout(request):
     auth.logout(request)
