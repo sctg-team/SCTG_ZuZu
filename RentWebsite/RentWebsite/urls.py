@@ -16,12 +16,15 @@ Including another URLconf
 from django.conf.urls import url,include,handler404,handler500
 from django.contrib import admin
 from . import views
+from . import settings
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.views import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^',include('apps.accounts.urls',namespace="accounts")),
+
     url(r'^base/$', views.base,name='base'),
     url(r'^logtest/$', views.logtest, name='logtest'),
     url(r'^index/',views.index,name='index1'),
