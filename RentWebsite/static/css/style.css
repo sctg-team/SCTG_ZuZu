@@ -33,9 +33,13 @@
 body {
     font-family: 'Lora', serif;
     font-weight: 400;
+    background: #f1f2f7 !important;
     font-style: normal;
     font-size: 14px;
-    color: #242424;
+    /*color: #797979 ;*/
+    /*color: #242424;*/
+    /*padding: 0 !important;*/
+    /*margin: 0 !important;*/
 }
 .img {
     max-width: 100%;
@@ -53,7 +57,8 @@ a,
     border-radius: 0px;
     font-size: 14px;
     padding: 0px 15px;
-    height: 30px;
+    /*height: 30px;*/
+    height: 40px;
     line-height: 30px;
 }
 a:focus,
@@ -275,7 +280,7 @@ textarea:focus {
     outline: none;
 }
 .input-group.divcenter.input-group .form-control {
-    padding-left: 0px
+    padding-left: 0px;
 }
 
 
@@ -3859,10 +3864,13 @@ h4.grand-totall-title span {
 -----------------------------*/
 
 .login-form-container {
-    background: transparent none repeat scroll 0 0;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-    padding: 80px;
+    /*background: transparent none repeat scroll 0 0;*/
+    background: #fff;
+    /*box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);*/
+    /*padding: 80px;*/
+    padding: 40px;
     text-align: left;
+    -webkit-border-radius: 10px;
 }
 .login-text {
     margin-bottom: 30px;
@@ -3882,9 +3890,11 @@ h4.grand-totall-title span {
     border: 1px solid #ebebeb;
     color: #666;
     font-size: 14px;
-    height: 50px;
-    margin-bottom: 30px;
+    /*height: 50px;*/
+    /*margin-bottom: 30px;*/
+    margin-bottom: 15px;
     padding: 0 15px;
+    border-radius: 3px;
 }
 .login-form-container input::-moz-placeholder {
     color: #666;
@@ -3956,7 +3966,7 @@ h4.grand-totall-title span {
     cursor: pointer;
 }
 .button-box button {
-    background-color: #f2f2f2;
+    background-color: #519f10;
     border: medium none;
     border-radius: 3px;
     color: #242424;
@@ -3969,9 +3979,11 @@ h4.grand-totall-title span {
     transition: all 0.3s ease 0s;
 }
 .button-box button:hover {
-    background-color: #519f10;
+    /*background-color: #519f10;*/
+    background-color: #28a745;
     color: #fff;
 }
+
 
 
 /*---------------------------
@@ -5443,7 +5455,8 @@ h4.section-title-about::before {
 	width: calc(100% - 100px); 
 }
 .wrapper-boxed-layout .container {
-	max-width: 1100px;
+	/*max-width: 1100px;*/
+	max-width: 800px;
 }
 .wrapper.wrapper-boxed-layout .header-menu {
 	width: calc(100% - 100px);
@@ -5487,6 +5500,12 @@ h4.section-title-about::before {
 section.wn_contact_area {
   padding-bottom: 60px;
 }
+}
+
+
+.id_mobile_captcha{
+    width: 200px;
+    padding: 10px;
 }
 
 

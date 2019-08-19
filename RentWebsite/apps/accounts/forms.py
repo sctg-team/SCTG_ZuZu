@@ -4,13 +4,19 @@ from django.core.exceptions import ValidationError
 from .models import TestUser
 from django.contrib.auth.hashers import check_password as auth_check_password
 
-
-# 用户注册
+"""
+当表单中的数据要写入数据库或者要修改某些记录的值时，
+让表单继承自ModelForm，这样可以指定某个Model并使用里面的字段创建相应的表单
+"""
+# 用户注册表单
 class RegisterForm(forms.ModelForm):
     password2 = forms.CharField(label="密 码2",
-                                widget=widgets.PasswordInput(attrs={"class": "form-control", "placeholder": "请再输入密码"}))
-    mobile_captcha = forms.CharField(label="验证码", widget=widgets.TextInput(
-        attrs={"style": "width: 160px;padding: 10px", "placeholder": "验证码", "error_messages": {"invalid": "验证码错误"}}))
+                                widget=widgets.PasswordInput(attrs={"class": "form-control",
+                                                                    "placeholder": "请再输入密码"}))
+    mobile_captcha = forms.CharField(label="验证码",
+                                     widget=widgets.TextInput(attrs={"style": "width: 160px;padding: 10px",
+                                                                     "placeholder": "验证码",
+                                                                     "error_messages": {"invalid": "验证码错误"}}))
 
     class Meta:
         model = TestUser

@@ -103,7 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# ºöÂÔµÄÎÄ¼ş
+# è¦è¢«å¿½ç•¥çš„æ–‡ä»¶
 .idea/
 venv/
-static/
