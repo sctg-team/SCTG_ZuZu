@@ -16,12 +16,15 @@ Including another URLconf
 from django.conf.urls import url,include,handler404,handler500
 from django.contrib import admin
 from . import views
+from . import settings
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.views import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^',include('apps.accounts.urls',namespace="accounts")),
+
     url(r'^base/$', views.base,name='base'),
     url(r'^logtest/$', views.logtest, name='logtest'),
     url(r'^index/',views.index,name='index1'),
@@ -29,8 +32,8 @@ urlpatterns = [
     # 用户登录注册
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
     url(r'^apis/',include('apps.apis.urls',namespace='apis')),
-    url(r'^uc/',include('apps.usercenter.urls',namespace='uc')),
-    url(r'^django_view/',include('apps.django_view.urls',namespace='django_view')),
+    url(r'^uc/', include('apps.uc.urls', namespace='uc')),
+    url(r'^goods/',include('apps.goods.urls',namespace='goods')),
     url(r'^test/$', views.test, name='test'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

@@ -68,6 +68,7 @@ class Login(View):
             # return redirect(reverse('accounts:index'))
             return redirect(request.session["next"])
         form = LoginForm()
+        # request.session["next"] = request.GET.get('next', reverse('accounts:login'))
         # 设置下一跳转地址(如果get有next,如果没有跳转到repo: index)
         request.session["next"] = request.GET.get('next', reverse('index2'))
         return render(request, "accounts/register.html", {"form": form})
@@ -99,9 +100,10 @@ class Login(View):
             logger.error(msg)
         return render(request, "accounts/login_teacher.html", {"form": form, "msg": msg})
 
-@login_required
+# @login_required
 def index(requeset):
     return redirect(requeset, reverse('accounts:login'))
+
 
 def logout(request):
     auth.logout(request)

@@ -7,6 +7,7 @@ from io import BytesIO
 import base64
 logger = logging.getLogger('apis')
 
+# 获取手机验证码
 def get_mobile_captcha(request):
     ret = {"code": 200, "msg": "验证码发送成功！"}
     try:
@@ -24,6 +25,8 @@ def get_mobile_captcha(request):
         ret = {"code": 400, "msg": "验证码发送失败！"}
     return JsonResponse(ret)
 
+
+# 得到验证码
 def get_captcha(request):
     # 直接在内存开辟一点空间存放临时生成的图片
     f = BytesIO()
@@ -39,6 +42,8 @@ def get_captcha(request):
     del f
     return HttpResponse(ret)
 
+
+# 检查验证码(不区分大小写)
 def check_captcha(request):
     ret = {"code":400, "msg":"验证码错误！"}
     post_captcha_code = request.GET.get('captcha_code')
@@ -47,3 +52,8 @@ def check_captcha(request):
     if post_captcha_code.lower() == session_captcha_code.lower():
         ret = {"code": 200, "msg": "验证码正确"}
     return JsonResponse(ret)
+
+
+# 404错误页面
+def error(request):
+    return HttpResponse('404.html')

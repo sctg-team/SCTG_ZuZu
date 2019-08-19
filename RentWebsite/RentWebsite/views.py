@@ -22,4 +22,4 @@ def my404(request):
     return render(request, 'repo/404.html')
 
 def test(request):
-    return render(request, 'bak/index2_origin.html')
+    return render(request, 'accounts/login.html')

@@ -8,4 +8,7 @@ urlpatterns = [
     url(r'^get_captcha/$', views.get_captcha, name='get_captcha'),
     # 检查验证码
     url(r'^check_captcha/$', views.check_captcha, name='check_captcha'),
+    # 测试页面404错误页面
+    url(r'^error', views.error, name='error'),
+
 ]

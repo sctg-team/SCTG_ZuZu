@@ -105,4 +105,8 @@ venv.bak/
 
 # 要被忽略的文件
 .idea/
+<<<<<<< HEAD
 venv/
+=======
+venv/
+>>>>>>> 00ecc1ab2a2e782dc55f064fa8b7d4130eede1b9
