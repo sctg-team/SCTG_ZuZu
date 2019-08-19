@@ -20,12 +20,8 @@ from . import views
 
 urlpatterns = [
     # 注册
-    # url(r'register/$', views.Register.as_view(), name="register"),
-    # 我们模板的
-    url(r'register/$', TemplateView.as_view(template_name='login-register.html'), name="register"),
-    # 老师的
-    url(r'register/$', TemplateView.as_view(template_name='accounts/register.html'), name="register"),
-
+    url(r'register/$', views.Register.as_view(), name="register"),
+    # url(r'register/$', TemplateView.as_view(template_name='accounts/register.html'), name="register"),
     # 登录
     url(r'login/$', views.Login.as_view(), name="login"),
     # 退出

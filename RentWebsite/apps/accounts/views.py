@@ -7,21 +7,23 @@ from django.views.generic import View
 from .forms import RegisterForm,LoginForm,TestUser
 from django.contrib.auth.decorators import login_required
 import logging
+# 记日志
 logger = logging.getLogger('account')
 
 # Create your views here.
-
 def test(request):
     return HttpResponse("功能还在测试中")
 
+
 def index(request):
     return render(request, "bak/index1_origin.html")
+
 
 class Register(View):
     def get(self, request):
         form = RegisterForm()
         # return render(request, "accounts/register.html", {"form": form})
-        return render(request, "accounts/register.html", {"form": form})
+        return render(request, "login-register.html", {"form": form})
 
     # Ajax提交表单
     def post(self, request):

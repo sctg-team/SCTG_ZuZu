@@ -106,7 +106,8 @@
             obj.value = buttonDefaultValue;
            }
         }
-    $("#register_btn").click(function () {
+
+        $("#register_btn").click(function () {
         // some_check
         $.ajax({
             url: "{% url 'accounts:register' %}",
