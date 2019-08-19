@@ -32,8 +32,8 @@ urlpatterns = [
     # 用户登录注册
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
     url(r'^apis/',include('apps.apis.urls',namespace='apis')),
-    url(r'^uc/',include('apps.usercenter.urls',namespace='uc')),
-    url(r'^django_view/',include('apps.django_view.urls',namespace='django_view')),
+    url(r'^uc/', include('apps.uc.urls', namespace='uc')),
+    url(r'^goods/',include('apps.goods.urls',namespace='goods')),
     url(r'^test/$', views.test, name='test'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

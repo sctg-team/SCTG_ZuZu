@@ -98,7 +98,7 @@ class Login(View):
             logger.error(msg)
         return render(request, "accounts/login.html", {"form": form, "msg": msg})
 
-@login_required
+# @login_required
 def index(requeset):
     return redirect(requeset, reverse('accounts:login'))
 

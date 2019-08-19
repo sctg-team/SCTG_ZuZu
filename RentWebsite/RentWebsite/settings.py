@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'apps',
     'apps.accounts',
     'apps.apis',
-    'apps.usercenter',
-    'apps.django_view',
+    'apps.uc',
+    'apps.goods',
 ]
 
 MIDDLEWARE = [
