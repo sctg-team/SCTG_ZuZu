@@ -22,8 +22,8 @@ def index(request):
 class Register(View):
     def get(self, request):
         form = RegisterForm()
-        # return render(request, "accounts/register.html", {"form": form})
-        return render(request, "login-register.html", {"form": form})
+        # return render(request, "accounts/register_teacher.html", {"form": form})
+        return render(request, "accounts/register.html", {"form": form})
 
     # Ajax提交表单
     def post(self, request):
@@ -70,7 +70,7 @@ class Login(View):
         form = LoginForm()
         # 设置下一跳转地址(如果get有next,如果没有跳转到repo: index)
         request.session["next"] = request.GET.get('next', reverse('index2'))
-        return render(request, "accounts/login.html", {"form": form})
+        return render(request, "accounts/register.html", {"form": form})
 
     def post(self, request):
         # 表单数据绑定
@@ -97,7 +97,7 @@ class Login(View):
         else:
             msg = "表单数据不完整"
             logger.error(msg)
-        return render(request, "accounts/login.html", {"form": form, "msg": msg})
+        return render(request, "accounts/login_teacher.html", {"form": form, "msg": msg})
 
 @login_required
 def index(requeset):

@@ -31,7 +31,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lora|Montserrat:100,200,300,300i,400,500,600,700,800,900|Playfair+Display:400,400i,700,700i,900,900i|Work+Sans:100,200,300,400,500,600,700,800,900');
 body {
-    font-family: 'Lora', serif;
+    /*font-family: 'Lora', serif;*/
     font-weight: 400;
     background: #f1f2f7 !important;
     font-style: normal;
@@ -2463,6 +2463,7 @@ textarea:focus {
     width: 100%;
 }
 
+
 /* quick view */
 #exampleModal .modal-dialog {
     margin: 8% auto;
@@ -3863,12 +3864,32 @@ h4.grand-totall-title span {
     7. Login register page
 -----------------------------*/
 
+/*登录模态框设置*/
+#myModal-login .modal-dialog {
+    margin: 80px auto;
+    max-width: 400px;
+    width: 400px;
+}
+.modal-header h4.modal-title {
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 45%;
+    /*justify-content: center;*/
+}
+
+/*登录表单框样式*/
 .login-form-container {
     /*background: transparent none repeat scroll 0 0;*/
     background: #fff;
     /*box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);*/
     /*padding: 80px;*/
-    padding: 40px;
+    text-align: left;
+    -webkit-border-radius: 10px;
+}
+/*注册的表单框样式*/
+.register-form-container {
+    background: #fff;
+    padding: 20px 30px;
     text-align: left;
     -webkit-border-radius: 10px;
 }
@@ -3885,14 +3906,24 @@ h4.grand-totall-title span {
 .login-text span {
     font-size: 15px;
 }
+/*登录注册输入框的样式*/
 .login-form-container input {
     background-color: transparent;
     border: 1px solid #ebebeb;
     color: #666;
     font-size: 14px;
-    /*height: 50px;*/
-    /*margin-bottom: 30px;*/
-    margin-bottom: 15px;
+    height: 45px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    border-radius: 3px;
+}
+.register-form-container input {
+    background-color: transparent;
+    border: 1px solid #ebebeb;
+    color: #666;
+    font-size: 14px;
+    height: 45px;
+    margin-bottom: 20px;
     padding: 0 15px;
     border-radius: 3px;
 }
@@ -3900,7 +3931,15 @@ h4.grand-totall-title span {
     color: #666;
     opacity: 1;
 }
+.register-form-container input::-moz-placeholder {
+    color: #666;
+    opacity: 1;
+}
 .login-form-container input::-webkit-input-placeholder {
+    color: #666;
+    opacity: 1;
+}
+.register-form-container input::-webkit-input-placeholder {
     color: #666;
     opacity: 1;
 }
@@ -3914,7 +3953,19 @@ h4.grand-totall-title span {
     top: 1px;
     width: 17px;
 }
+.register-form-container input[type="checkbox"] {
+    height: 15px;
+    margin: 0;
+    position: relative;
+    top: 1px;
+    width: 17px;
+}
 .login-form-container label {
+    color: #242424;
+    font-size: 15px;
+    font-weight: 400;
+}
+.register-form-container label {
     color: #242424;
     font-size: 15px;
     font-weight: 400;
@@ -3931,7 +3982,7 @@ h4.grand-totall-title span {
 .login-register-tab-list {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 .login-register-tab-list.nav a h4 {
     font-size: 25px;
@@ -3965,26 +4016,29 @@ h4.grand-totall-title span {
     border: medium none;
     cursor: pointer;
 }
+/*给class="button-box"的button按钮设置样式*/
 .button-box button {
-    background-color: #519f10;
+    background-color: #30c431;
     border: medium none;
     border-radius: 3px;
-    color: #242424;
+    color: white;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     line-height: 1;
     padding: 11px 30px;
     text-transform: uppercase;
     transition: all 0.3s ease 0s;
 }
+/*给class="button-box"的button按钮设置悬停时的样式*/
 .button-box button:hover {
-    /*background-color: #519f10;*/
-    background-color: #28a745;
-    color: #fff;
+    background-color: #30B131;
+    color: white;
 }
 
-
+.checkbox, .checkbox:hover, .checkbox:focus  {
+	border:none;
+}
 
 /*---------------------------
     8. Checkout page
@@ -5502,11 +5556,6 @@ section.wn_contact_area {
 }
 }
 
-
-.id_mobile_captcha{
-    width: 200px;
-    padding: 10px;
-}
 
 
 

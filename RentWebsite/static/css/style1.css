@@ -80,7 +80,7 @@ a, a:hover, a:focus {
 .form-signin .form-control {
     position: relative;
     font-size: 16px;
-    height: auto;
+    height: 10px;
     padding: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3119,9 +3119,6 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
     color: #B94A48;
 }
 
-.checkbox, .checkbox:hover, .checkbox:focus  {
-	border:none;
-}
 
 /*add by cici*/
 .user-reg {

@@ -12,10 +12,10 @@ from django.contrib.auth.hashers import check_password as auth_check_password
 class RegisterForm(forms.ModelForm):
     password2 = forms.CharField(label="密 码2",
                                 widget=widgets.PasswordInput(attrs={"class": "form-control",
-                                                                    "placeholder": "请再输入密码"}))
+                                                                    "placeholder": "请再次输入密码"}))
     mobile_captcha = forms.CharField(label="验证码",
-                                     widget=widgets.TextInput(attrs={"style": "width: 160px;padding: 10px",
-                                                                     "placeholder": "验证码",
+                                     widget=widgets.TextInput(attrs={"style": "padding: 15px; width: 180px;",
+                                                                     "placeholder": "请输入验证码",
                                                                      "error_messages": {"invalid": "验证码错误"}}))
 
     class Meta:
@@ -57,8 +57,9 @@ class LoginForm(forms.Form):
     username = forms.CharField(label="用户名", max_length="24",
                                widget=widgets.TextInput(attrs={"class": "form-control", "placeholder": "用户名"}))
     captcha = forms.CharField(label="验证码", widget=widgets.TextInput(
-        attrs={"style": "width: 160px;padding: 10px", "placeholder": "验证码", "onblur": "check_captcha()",
+        attrs={"placeholder": "验证码", "onblur": "check_captcha()",
                "error_messages": {"invalid": "验证码错误"}}))
+    # "style": "width: 160px;padding: 10px",
     password = forms.CharField(label="密 码",
                                widget=widgets.PasswordInput(attrs={"class": "form-control", "placeholder": "请输入密码"}))
 

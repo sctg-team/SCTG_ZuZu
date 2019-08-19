@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {#    <link rel="stylesheet" href="{% static 'css/style1.css' %}">#}
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
     {% block load_css %}
     {% endblock %}
 </head>
@@ -154,21 +153,6 @@
                                         </div>
                                     </div>
                                     <!-- 购物车 dropdown end-->
-                                    <!-- USD dropdown start-->
-                                    {#                                    <div class="header-currency">#}
-                                    {#                                        <span class="digit">USD <i class="ti-angle-down"></i></span>#}
-                                    {#                                        <div class="dollar-submenu">#}
-                                    {#                                            <ul>#}
-                                    {#                                                <li><a href="#">$ USD</a></li>#}
-                                    {#                                                <li><a href="#">€ EUR</a></li>#}
-                                    {#                                                <li><a href="#">£ GBP</a></li>#}
-                                    {#                                                <li><a href="#">₹ INR</a></li>#}
-                                    {#                                                <li><a href="#">¥ JPY</a></li>#}
-                                    {#                                            </ul>#}
-                                    {#                                        </div>#}
-                                    {#                                    </div>#}
-                                    <!-- USD dropdown end-->
-
                                     <!-- 个人中心 dropdown start-->
                                     <li class="dropdown">
                                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -180,8 +164,7 @@
                                         <ul class="dropdown-menu">
                                             <div class="log-arrow-up"></div>
                                             <li><a class="" href="http://127.0.0.1:8000/uc/profile/"> 个人资料 </a></li>
-                                            <li><a class="" href="http://127.0.0.1:8000/uc/change_passwd/"> 修改密码 </a>
-                                            </li>
+                                            <li><a class="" href="http://127.0.0.1:8000/uc/change_passwd/"> 修改密码 </a></li>
                                             <li><a class="" href="http://127.0.0.1:8000/uc/answer/"> 我的回答 </a></li>
                                             <li><a class="" href="http://127.0.0.1:8000/uc/collect/"> 我的收藏 </a></li>
                                             <li><a class="" href="#myModal-1" data-toggle="modal"> 贡献题目 </a></li>
@@ -192,10 +175,9 @@
                                     <!-- 个人中心 dropdown end-->
                                 {% else %}
                                     <div class="header-currency">
-{#                                    accounts:login#}
-                                        <span class="digit"><a href="{% url 'test' %}">登录</a></span>
+                                        <span class="digit"><a href="#myModal-login" data-toggle="modal">登录</a></span>
                                         <b>|</b>
-                                        <span class="digit"><a href="{% url 'test' %}">注册</a></span>
+                                        <span class="digit"><a href="accounts/register.html">注册</a></span>
                                     </div>
                                 {% endif %}
                                 <!-- user login dropdown end -->
@@ -490,6 +472,7 @@
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/plugins.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
 {% block load_js %}
 {% endblock %}
 </body>
