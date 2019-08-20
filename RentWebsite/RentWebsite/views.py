@@ -19,13 +19,14 @@ def index(request):
 
 # @login_required
 def index2(request):
+
     return render(request, "repo/index2.html")
 
 def my404(request):
     return render(request, 'repo/404.html')
 
 def test(request):
-    return render(request, 'account/login.html')
+    return render(request, 'account/login_teacher.html')
 
 
 def logintest(request):
