@@ -6,7 +6,9 @@ from django.http import JsonResponse
 from django.views.generic import View
 from .forms import RegisterForm,LoginForm,TestUser
 from django.contrib.auth.decorators import login_required
+# from RentWebsite.contect_processer import LoginForm,RegisterForm,TestUser
 import logging
+
 # 记日志
 logger = logging.getLogger('account')
 
