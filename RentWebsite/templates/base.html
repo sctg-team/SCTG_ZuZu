@@ -192,7 +192,7 @@
                                             <li><a class="" href="http://127.0.0.1:8080/uc/answer/"> 我的回答 </a></li>
                                             <li><a class="" href="http://127.0.0.1:8080/uc/collect/"> 我的收藏 </a></li>
                                             <li><a class="" href="#myModal-1" data-toggle="modal"> 贡献题目 </a></li>
-                                            <li><a class="" href="http://127.0.0.1:8080/uc/contribut/"> 我的贡献 </a></li>
+                                            <li><a class="" href="http://127.0.0.1:8080/uc/contribut/"> 我的贡献 </a></li><br>
                                             <li><a class="" href="{% url 'accounts:logout' %}"> 退出 </a></li>
                                         </ul>
                                     </li>
@@ -201,11 +201,11 @@
                                     <div class="header-currency">
                                         <span class="digit"><a href="#myModal-login" data-toggle="modal">登录</a></span>
                                         <b>|</b>
-                                        <span class="digit"><a href="{% url 'register' %}">注册</a></span>
+                                        <span class="digit"><a href="{% url 'accounts:register' %}">注册</a></span>
                                     </div>
                                 {% endif %}
                                 <!-- user login dropdown end -->
-                            </ul>
+                                </ul>
                                 </nav>
                             </div>
                         </div>
@@ -487,7 +487,7 @@
     </div>
     <!-- Modal end -->
 </div>
-
+{% include 'login.html' %}
 <!-- all js here -->
 <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>

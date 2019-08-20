@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^index/',views.index,name='index1'),
     url(r'^index2/',views.index2,name='index2'),
     # 用户登录注册
-    url(r'^accounts/',include('apps.accounts.urls',namespace='account')),
+    url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
     url(r'^apis/',include('apps.apis.urls',namespace='apis')),
     url(r'^uc/', include('apps.uc.urls', namespace='uc')),
     url(r'^goods/',include('apps.goods.urls',namespace='goods')),

@@ -3932,19 +3932,19 @@ h4.grand-totall-title span {
     text-align: left;
     -webkit-border-radius: 10px;
 }
-.login-text {
-    margin-bottom: 30px;
-    text-align: center;
-}
-.login-text h2 {
-    color: #444;
-    font-size: 30px;
-    margin-bottom: 5px;
-    text-transform: capitalize;
-}
-.login-text span {
-    font-size: 15px;
-}
+/*.login-text {*/
+    /*margin-bottom: 30px;*/
+    /*text-align: center;*/
+/*}*/
+/*.login-text h2 {*/
+    /*color: #444;*/
+    /*font-size: 30px;*/
+    /*margin-bottom: 5px;*/
+    /*text-transform: capitalize;*/
+/*}*/
+/*.login-text span {*/
+    /*font-size: 15px;*/
+/*}*/
 /*登录注册输入框的样式*/
 .login-form-container input {
     background-color: transparent;
