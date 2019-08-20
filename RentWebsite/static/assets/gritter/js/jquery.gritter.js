@@ -80,7 +80,7 @@
 		_is_setup: 0,
 		_tpl_close: '<div class="gritter-close"></div>',
 		_tpl_title: '<span class="gritter-title">[[title]]</span>',
-		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none"><div class="gritter-top"></div><div class="gritter-item">[[close]][[image]]<div class="[[class_name]]">[[title]]<p>[[text]]</p></div><div style="clear:both"></div></div><div class="gritter-bottom"></div></div>',
+		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none"><div class="gritter-top"></div><div class="gritter-item">[[close]][[images]]<div class="[[class_name]]">[[title]]<p>[[text]]</p></div><div style="clear:both"></div></div><div class="gritter-bottom"></div></div>',
 		_tpl_wrap: '<div id="gritter-notice-wrapper"></div>',
 		
 		/**
@@ -132,8 +132,8 @@
 				this._custom_timer = time_alive;
 			}
 			
-			var image_str = (image != '') ? '<img src="' + image + '" class="gritter-image" />' : '',
-				class_name = (image != '') ? 'gritter-with-image' : 'gritter-without-image';
+			var image_str = (image != '') ? '<img src="' + image + '" class="gritter-images" />' : '',
+				class_name = (image != '') ? 'gritter-with-images' : 'gritter-without-images';
 			
 			// String replacements on the template
 			if(title){
@@ -143,7 +143,7 @@
 			}
 			
 			tmp = this._str_replace(
-				['[[title]]', '[[text]]', '[[close]]', '[[image]]', '[[number]]', '[[class_name]]', '[[item_class]]'],
+				['[[title]]', '[[text]]', '[[close]]', '[[images]]', '[[number]]', '[[class_name]]', '[[item_class]]'],
 				[title, text, this._tpl_close, image_str, this._item_count, class_name, item_class], tmp
 			);
 

@@ -189,28 +189,23 @@
                                                 <ul class="dropdown-menu">
                                                     <div class="log-arrow-up"></div>
                                                     {#                                            <li><a class="" href="{% url 'uc' %}"> 个人资料 </a></li>#}
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/change_passwd/">
-                                                        修改密码 </a>
-                                                    </li>
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/answer/"> 我的回答 </a>
-                                                    </li>
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/collect/"> 我的收藏 </a>
-                                                    </li>
-                                                    <li><a class="" href="#myModal-1" data-toggle="modal"> 贡献题目 </a>
-                                                    </li>
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/contribut/">
-                                                        我的贡献 </a></li>
+                                                    <li><a class="" href="http://127.0.0.1:8080/uc/change_passwd/">修改密码 </a></li>
+                                                    <li><a class="" href="http://127.0.0.1:8080/uc/answer/"> 我的回答 </a></li>
+                                                    <li><a class="" href="http://127.0.0.1:8080/uc/collect/"> 我的收藏 </a></li>
+                                                    <li><a class="" href="#myModal-1" data-toggle="modal"> 贡献题目 </a></li>
+                                                    <li><a class="" href="http://127.0.0.1:8080/uc/contribut/">我的贡献 </a></li>
+                                                    <br>
                                                     <li><a class="" href="{% url 'accounts:logout' %}"> 退出 </a></li>
                                                 </ul>
                                             </li>
                                             <!-- 个人中心 dropdown end-->
+
                                         {% else %}
                                             <div class="header-currency">
 {#                                                <span class="digit"><a href="#myModal-login" data-toggle="modal">登录</a></span>#}
                                                 <span class="digit"><a href="{% url 'accounts:login' %}">登录</a></span>
                                                 <b>|</b>
-                                                <span class="digit"><a
-                                                        href="{% url 'accounts:register' %}">注册</a></span>
+                                                <span class="digit"><a href="{% url 'accounts:register' %}">注册</a></span>
                                             </div>
                                         {% endif %}
                                         <!-- user login dropdown end -->
@@ -497,7 +492,7 @@
     <!-- Modal end -->
 </div>
 
-{% include 'accounts/login.html' %}
+{% include 'login.html' %}
 
 <!-- all js here -->
 <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>

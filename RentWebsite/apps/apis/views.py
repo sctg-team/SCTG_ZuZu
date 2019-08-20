@@ -37,7 +37,7 @@ def get_captcha(request):
     # 生成的图片放置于开辟的内存中
     img.save(f, 'PNG')
     # 将内存的数据读取出来，转化为base64格式
-    ret_type = "data:image/jpg;base64,".encode()
+    ret_type = "data:images/jpg;base64,".encode()
     ret = ret_type+base64.encodebytes(f.getvalue())
     del f
     return HttpResponse(ret)

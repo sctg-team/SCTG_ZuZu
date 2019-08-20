@@ -57,7 +57,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(label="用户名", max_length="24",
                                widget=widgets.TextInput(attrs={"class": "form-control", "placeholder": "用户名"}))
     captcha = forms.CharField(label="验证码", widget=widgets.TextInput(
-        attrs={"placeholder": "验证码", "onblur": "check_captcha()",
+        attrs={"style": "width: 160px;padding: 10px", "placeholder": "验证码", "onblur": "check_captcha()",
                "error_messages": {"invalid": "验证码错误"}}))
     # "style": "width: 160px;padding: 10px",
     password = forms.CharField(label="密 码",
@@ -74,7 +74,7 @@ class LoginForm(forms.Form):
             return None, False
 
     def clean_username(self):
-        print('hahaha')
+        # print('hahaha')
         print(self.cleaned_data.get("username"))
         ret = TestUser.objects.filter(username=self.cleaned_data.get("username"))
         if ret:

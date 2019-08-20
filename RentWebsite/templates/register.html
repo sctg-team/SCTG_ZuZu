@@ -1,7 +1,7 @@
 ﻿{% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}
-    登录/注册-租好物
+    注册-租好物
 {% endblock %}
 
 {% block load_css %}
@@ -11,7 +11,7 @@
 {% block content %}
     <div class="container">
         <div class="row ptb-20">
-            <div class="col-lg-6 col-md-12 ml-auto mr-auto">
+            <label class="col-lg-6 col-md-12 ml-auto mr-auto">
                 <label class="register-form-container">
                     <div class="login-register-tab-list nav">
                         <h4> 注册 </h4>
@@ -31,8 +31,8 @@
 
                         <div class="button-box">
                             <button class="btn-block" style="height:50px;" type="submit">注册</button>
-                            <span class="pull-right" style="line-height: 3;"> 已有帐号， <a
-                                    href="{% url 'accounts:login' %}" style="color: blue;"> 请登录 </a></span>
+                            <span class="pull-right" style="line-height: 3;"> 已有帐号，请 <a
+                                    data-toggle="modal" href="#myModal-login" style="color: blue;"> 登录 </a></span>
                         </div>
                         <div class="alert alert-block alert-danger fade in">
                             <button data-dismiss="alert" class="close close-sm" type="button">
@@ -41,9 +41,12 @@
                             <strong>提醒!</strong> 错误提示信息~~
                         </div>
                     </form>
-                </div>
+                </label>
+                </label>
             </div>
         </div>
     </div>
+    {% include 'login.html' %}
 {% endblock %}
+
 
