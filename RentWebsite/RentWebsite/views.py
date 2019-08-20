@@ -16,6 +16,7 @@ def index(request):
     return render(request, "bak/index1_origin.html")
 
 def index2(request):
+
     return render(request, "repo/index2.html")
 
 def my404(request):

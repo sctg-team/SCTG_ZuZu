@@ -71,7 +71,7 @@ class Login(View):
         # request.session["next"] = request.GET.get('next', reverse('accounts:login'))
         # 设置下一跳转地址(如果get有next,如果没有跳转到repo: index)
         request.session["next"] = request.GET.get('next', reverse('index2'))
-        return render(request, "accounts/register.html", {"form": form})
+        return render(request, "accounts/login_teacher.html", {"form": form})
 
     def post(self, request):
         # 表单数据绑定

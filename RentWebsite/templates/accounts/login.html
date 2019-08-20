@@ -3,8 +3,7 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap-reset.css' %}">
 
 <!--模态框的出现和隐藏-->
-<div aria-hidden="true" aria-labelledby="myModalLabel"
-     role="dialog" tabindex="-1" id="myModal-login" class="modal fade">
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-login" class="modal fade">
     <div class="modal-dialog" role="form">
         <!--模态框内容-->
         <div class="modal-content">
@@ -21,7 +20,7 @@
                 <div class="modal-body">
                     <form action="#" method="post">
                         {% csrf_token %}
-                        {{ form.username }}
+                        {{ login_data.login_username }}
                         {{ form.password }}
                         {{ form.captcha }}
                         <a href="javascript:void(0);"><img id="captcha_img" src="#"/></a>
