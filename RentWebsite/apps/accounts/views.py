@@ -15,15 +15,11 @@ def test(request):
     return HttpResponse("功能还在测试中")
 
 
-def index(request):
-    return render(request, "bak/index1_origin.html")
-
-
 class Register(View):
     def get(self, request):
         form = RegisterForm()
-        # return render(request, "accounts/register_teacher.html", {"form": form})
-        return render(request, "accounts/register.html", {"form": form})
+        # return render(request, "account/register_teacher.html", {"form": form})
+        return render(request, "register.html", {"form": form})
 
     # Ajax提交表单
     def post(self, request):
@@ -65,13 +61,13 @@ class Login(View):
         # 如果已登录，则直接跳转到index页面
         # request.user 表示的是当前登录的用户对象,没有登录 `匿名用户`
         if request.user.is_authenticated:
-            # return redirect(reverse('accounts:index'))
+            # return redirect(reverse('account:index'))
             return redirect(request.session["next"])
         form = LoginForm()
-        # request.session["next"] = request.GET.get('next', reverse('accounts:login'))
+        # request.session["next"] = request.GET.get('next', reverse('account:login'))
         # 设置下一跳转地址(如果get有next,如果没有跳转到repo: index)
         request.session["next"] = request.GET.get('next', reverse('index2'))
-        return render(request, "accounts/register.html", {"form": form})
+        return render(request, "login.html", {"form": form})
 
     def post(self, request):
         # 表单数据绑定
@@ -98,9 +94,9 @@ class Login(View):
         else:
             msg = "表单数据不完整"
             logger.error(msg)
-        return render(request, "accounts/login_teacher.html", {"form": form, "msg": msg})
+        return render(request, "login.html", {"form": form, "msg": msg})
 
-# @login_required
+@login_required
 def index(requeset):
     return redirect(requeset, reverse('accounts:login'))
 

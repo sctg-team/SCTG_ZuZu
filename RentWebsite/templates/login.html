@@ -1,0 +1,52 @@
+{# login模态框 #}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/bootstrap-reset.css' %}">
+
+<!--模态框的出现和隐藏-->
+<div aria-hidden="true" aria-labelledby="myModalLabel"
+     role="dialog" tabindex="-1" id="myModal-login" class="modal fade">
+    <div class="modal-dialog" role="form">
+        <!--模态框内容-->
+        <div class="modal-content">
+            <!--为input框等设置-->
+            <div class="login-form-container">
+                <!--头部-->
+                <div class="modal-header">
+                    <h4 class="modal-title">登录</h4>
+                    <button aria-hidden="true" class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        &times;
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        {{ form.username }}
+                        {{ form.password }}
+                        {{ form.captcha }}
+                        <a href="javascript:void(0);"><img id="captcha_img" src="#"/></a>
+                        <div class="button-box">
+                            <label>
+                                <input type="checkbox" value="remember-me">记住密码
+                            </label>
+                            <span class="pull-right">
+                                <a href="#" style="color: blue;"> 忘记密码?</a>
+                            </span>
+                            <button class="btn-block" style="height:50px;" type="submit">登录</button>
+                            <p class="msg"></p>
+                            {% if msg %}
+                                <div class="alert aler-block alert-danger fade in">
+                                    <button data-dismiss="alert" class="close close-sm"
+                                            type="button">
+                                        <i class="icon-remove"></i>
+                                    </button>
+                                    <strong>提醒！</strong>{{ msg }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

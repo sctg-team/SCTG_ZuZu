@@ -136,7 +136,7 @@ STATICFILES_DIRS = [
 ]
 
 # 自定义用户model： "应用名.Model名
-AUTH_USER_MODEL = 'accounts.TestUser'
+AUTH_USER_MODEL = 'account.TestUser'
 # 注意：如果扩展了User一定需要指定AUTH_USER_MODEL
 
 

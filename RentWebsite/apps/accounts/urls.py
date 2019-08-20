@@ -21,7 +21,7 @@ from . import views
 urlpatterns = [
     # 注册
     url(r'register/$', views.Register.as_view(), name="register"),
-    # url(r'register/$', TemplateView.as_view(template_name='accounts/register_teacher.html'), name="register"),
+    # url(r'register/$', TemplateView.as_view(template_name='account/register_teacher.html'), name="register"),
     # 登录
     url(r'login/$', views.Login.as_view(), name="login"),
     # 退出
