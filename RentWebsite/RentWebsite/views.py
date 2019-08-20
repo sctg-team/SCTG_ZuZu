@@ -26,3 +26,7 @@ def my404(request):
 
 def test(request):
     return render(request, 'account/login.html')
+
+
+def logintest(request):
+    return render(request,'account/login_teacher.html')

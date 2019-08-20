@@ -6,7 +6,7 @@ $(document).ready(function(){
 $(function() {
     'use strict';
     // 初始化
-    var $image = $('#image');
+    var $image = $('#images');
     $image.cropper({
         aspectRatio: '1',
         autoCropArea:0.8,
@@ -25,7 +25,7 @@ $(function() {
             if (result) {
                 // 显示 Modal
                 $('#cropped-modal').modal().find('.am-modal-bd').html(result);
-                $('#download').attr('href', result.toDataURL('image/jpeg'));
+                $('#download').attr('href', result.toDataURL('images/jpeg'));
             }
             break;
         }
@@ -54,7 +54,7 @@ $(function() {
                     }).cropper('reset').cropper('replace', blobURL);
                     $inputImage.val('');
                 } else {
-                    window.alert('Please choose an image file.');
+                    window.alert('Please choose an images file.');
                 }
             }
 
@@ -83,8 +83,8 @@ $(function() {
     	$modal.modal();
     	
     	var url=$(this).attr("url");
-    	var canvas=$("#image").cropper('getCroppedCanvas');
-    	var data=canvas.toDataURL(); //转成base64(data:image)
+    	var canvas=$("#images").cropper('getCroppedCanvas');
+    	var data=canvas.toDataURL(); //转成base64(data:images)
         var csrftoken = getCookie('csrftoken');
         $.ajax( {  
                 url:url,  
@@ -121,12 +121,12 @@ $(function() {
 });
 
 function rotateimgright() {
-$("#image").cropper('rotate', 90);
+$("#images").cropper('rotate', 90);
 }
 
 
 function rotateimgleft() {
-$("#image").cropper('rotate', -90);
+$("#images").cropper('rotate', -90);
 }
 
 function set_alert_info(content){
