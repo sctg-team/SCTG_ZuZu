@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include,handler404,handler500
 from django.contrib import admin
 from . import views
-from . import settings
+from .settings import MEDIA_ROOT
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.views import serve
@@ -32,9 +32,16 @@ urlpatterns = [
     url(r'^index2/',views.index2,name='index2'),
     # 用户登录注册
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
+    # 接口
     url(r'^apis/',include('apps.apis.urls',namespace='apis')),
+    # 用户中心
     url(r'^uc/', include('apps.uc.urls', namespace='uc')),
+    # 商品库
     url(r'^goods/',include('apps.goods.urls',namespace='goods')),
+    # media 处理
+    url(r'^media/(?P<path>.*)$',  serve, {"document_root": MEDIA_ROOT}),
+    # ckeditor
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^test/$', views.test, name='test'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
