@@ -37,12 +37,13 @@ urlpatterns = [
     # 用户中心
     url(r'^uc/', include('apps.uc.urls', namespace='uc')),
     # 商品库
-    url(r'^goods/',include('apps.goods.urls',namespace='goods')),
+    url(r'^goods/', include('apps.goods.urls', namespace='goods')),
     # media 处理
     url(r'^media/(?P<path>.*)$',  serve, {"document_root": MEDIA_ROOT}),
     # ckeditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^test/$', views.test, name='test'),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+# static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-handler404 = views.my404
+# handler404 = views.my404

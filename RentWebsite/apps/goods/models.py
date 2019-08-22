@@ -1,10 +1,10 @@
 from django.db import models
-from django.core.exceptions import ValidationError
-from RentWebsite.context_processors import valid_difficulty
-from ckeditor.fields import RichTextField
+# from django.core.exceptions import ValidationError
+# from RentWebsite.context_processors import valid_difficulty
+# from ckeditor.fields import RichTextField
 # 包含文件上传
 from ckeditor_uploader.fields import RichTextUploadingField
-from apps.accounts.models import UserInfo
+from apps.accounts.models import User
 
 # Create your models here.
 
@@ -20,6 +20,7 @@ class Category(models.Model):
     def __str__(self):
         return "{}".format(self.name)
 
+
 # 商品标签
 class Tag(models.Model):
     """标签"""
@@ -32,34 +33,35 @@ class Tag(models.Model):
     def __str__(self):
         return "{}".format(self.name)
 
+
 # 商品表
 class Goods(models.Model):
     """商品库"""
-    DIF_CHOICES = (
-        (1, ""),
-        (2, "简单"),
-        (3, "中等"),
-        (4, "困难"),
-        (5, "超难"),
-    )
-    grade = models.IntegerField("题目难度", choices=DIF_CHOICES, validators=[valid_difficulty], null=True)
-    category = models.ForeignKey(Category, verbose_name="所属分类", null=True)
+    # DIF_CHOICES = (
+    #     (1, ""),
+    #     (2, "简单"),
+    #     (3, "中等"),
+    #     (4, "困难"),
+    #     (5, "超难"),
+    # )
+    # grade = models.IntegerField("题目难度", choices=DIF_CHOICES, validators=[valid_difficulty], null=True)
+    category = models.ForeignKey(Category, verbose_name="所属分类")
     title = models.CharField("商品标题", max_length=256)
     # 富文本编辑器
     # g_name = RichTextUploadingField("物品名称", null=True)
     # 富文本编辑器
     desc = RichTextUploadingField("物品描述", null=True, blank=True)
     # 租金
-    rent = models.DecimalField("租金")
+    rent = models.DecimalField("租金",max_digits=11,decimal_places=10)
     # 押金
-    deposit = models.DecimalField("押金")
+    deposit = models.DecimalField("押金",max_digits=11,decimal_places=10)
     # 出租人
-    lessor = models.ForeignKey(UserInfo, verbose_name="贡献者", null=True)
-    pub_time = models.DateTimeField("入库时间", auto_now_add=True, null=True)
+    user = models.ForeignKey(User, verbose_name="贡献者")
+    pub_time = models.DateTimeField("入库时间", auto_now_add=True)
     # 审核状态
     status = models.BooleanField("审核状态", default=False)
     # 数组....(会产生一个中间表)
-    tag = models.ManyToManyField(Tag, verbose_name="题目标签")
+    tag = models.ManyToManyField(Tag, verbose_name="商品标签")
 
     class Meta:
         verbose_name = "商品"
@@ -78,7 +80,7 @@ class Goods(models.Model):
 # 商品收藏表
 class GoodsCollection(models.Model):
     goods = models.ForeignKey(Goods,verbose_name="出租物品",related_name='goods_collection_set')
-    user = models.ForeignKey(UserInfo,verbose_name="收藏者",related_name='goods_collection_set')
+    user = models.ForeignKey(User,verbose_name="收藏者",related_name='goods_collection_set')
     create_time = models.DateTimeField("收藏/取消时间", auto_now=True)
     # True表示收藏，False表示未收藏
     status = models.BooleanField("收藏状态",default=True)
@@ -95,20 +97,6 @@ class GoodsCollection(models.Model):
         return "{}:{}:{}".format(self.user,ret,self.goods.title)
 
 
-# # 商品
-# class AnswersManager(models.Manager):
-#     def hot_question(self):
-#         """热门商品"""
-#         # question = self.values('question').annotate(Count('id'))
-#         # print(question)
-#         question = self.raw("select repo_answers.id as answer_id, repo_questions.id as id, count(repo_answers.id) as answer_num, repo_questions.title, repo_questions.grade from repo_answers left join repo_questions on repo_answers.question_id = repo_questions.id GROUP BY repo_questions.title ORDER BY answer_num desc limit 5;")
-#         return question
-#
-#     def hot_user(self):
-#         """热门租户"""
-#         import datetime
-#         today_30 = datetime.date.today() + datetime.timedelta(days=-30)
-#         user_rank = self.filter(last_modify__gte=today_30).values('user__username').annotate(Count('id')).order_by("-id__count")[:5]
-#         return user_rank
+
 
 

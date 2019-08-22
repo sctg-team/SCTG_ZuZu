@@ -1,38 +1,40 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+# from django.core.exceptions import ValidationError
 from easy_thumbnails.fields import ThumbnailerImageField
-from django.db.models.fields.files import ImageFieldFile
 from libs.images import make_thumb
-from RentWebsite.context_processors import valid_sex
+from apps.goods.validator import valid_sex
 from RentWebsite.settings import MEDIA_ROOT, THUMB_SIZE
-import os
+from django.db.models.fields.files import ImageFieldFile
+from django.db import models
+import os,logging
+logger = logging.getLogger("accounts")
 
 # Create your models here.
 
 # 继承AbstractUser
-class TestUser(AbstractUser):
-    # 真实姓名
-    realname = models.CharField(max_length=8, verbose_name="真实姓名")
-    # 手机号
-    mobile = models.CharField(max_length=11, verbose_name="手机号")
-    # QQ号
-    qq = models.CharField(max_length=11, verbose_name="QQ号")
-    # 个人头像
-    avator_sor = models.ImageField(upload_to="avator/%Y%m%d/", default="avator/default.jpg", verbose_name="头像")
+# class TestUser(AbstractUser):
+#     # 真实姓名
+#     realname = models.CharField(max_length=8, verbose_name="真实姓名")
+#     # 手机号
+#     mobile = models.CharField(max_length=11, verbose_name="手机号")
+#     # QQ号
+#     qq = models.CharField(max_length=11, verbose_name="QQ号")
+#     # 个人头像
+#     avator_sor = models.ImageField(upload_to="avator/%Y%m%d/", default="avator/default.jpg", verbose_name="头像")
 
 
-# 用户表
-class UserInfo(AbstractUser):
-    SEX_CHOICES = ((None, "请选择"),
-                    (0, "男"),
-                    (1, "女"),
+# 用户表，继承AbstractUser
+class User(AbstractUser):
+    SEX_CHOICES = ((0, "男"),
+                   (1, "女"),
+                   (2, "隐藏"),
                     )
     realname = models.CharField(max_length=8, verbose_name="真实姓名")  # 需要出租或承租就需要完善本字段
     sex = models.IntegerField("性别", choices=SEX_CHOICES,validators=[valid_sex])
     mobile = models.CharField(max_length=11, verbose_name="手机号")  # 需要出租或承租就需要完善本字段
     qq = models.CharField(max_length=11, verbose_name="QQ号")
     id_card = models.CharField(max_length=18, verbose_name="身份证号")  # 需要出租或承租就需要完善本字段
-    address = models.CharField(verbose_name="地址")
+    address = models.CharField(verbose_name="地址",max_length=128)
     avator_sor = ThumbnailerImageField(upload_to="avator/%Y%m%d/", default="avator/default.jpg", verbose_name="头像")
     avator_sm = models.ImageField('头像缩略图', upload_to='avator/%Y%m%d/', default='avator/5.70x70.jpg')
 

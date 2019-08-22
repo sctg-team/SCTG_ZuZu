@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'dqjango.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -75,10 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                'RentWebsite.context_processors.valid_difficulty',
-
-
+                # 'RentWebsite.context_processors.valid_difficulty',
             ],
         },
     },
@@ -143,10 +140,10 @@ STATICFILES_DIRS = [
 ]
 
 # 自定义用户model： "应用名.Model名
-AUTH_USER_MODEL = 'accounts.TestUser'
+AUTH_USER_MODEL = 'accounts.User'
 # 注意：如果扩展了User一定需要指定AUTH_USER_MODEL
 
-
+from django.contrib.admin import migrations
 # 配置日志
 LOG_ROOT = os.path.join(BASE_DIR, 'logs')
 if not os.path.exists(LOG_ROOT):
@@ -246,7 +243,7 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False
         },
-        'repo': {
+        'goods': {
             'handlers': ['repo_handler', 'console'],
             'level': 'DEBUG',
             'propagate': False

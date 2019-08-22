@@ -4,7 +4,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib import auth
 from django.http import JsonResponse
 from django.views.generic import View
-from .forms import RegisterForm,LoginForm,TestUser
+from .forms import RegisterForm,LoginForm,User
 from django.contrib.auth.decorators import login_required
 # from RentWebsite.contect_processer import LoginForm,RegisterForm,TestUser
 import logging
