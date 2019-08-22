@@ -3913,6 +3913,7 @@ h4.grand-totall-title span {
     font-weight: 300;
     font-family: 'Open Sans', sans-serif;
     margin-left: 45%;
+    color: white;
 }
 
 /*登录表单框样式*/
@@ -3981,9 +3982,7 @@ h4.grand-totall-title span {
     color: #666;
     opacity: 1;
 }
-.login-toggle-btn {
-    padding: 10px 0 19px;
-}
+
 .login-form-container input[type="checkbox"] {
     height: 15px;
     margin: 0;
@@ -3991,72 +3990,62 @@ h4.grand-totall-title span {
     top: 1px;
     width: 17px;
 }
-.register-form-container input[type="checkbox"] {
-    height: 15px;
-    margin: 0;
-    position: relative;
-    top: 1px;
-    width: 17px;
-}
+
 .login-form-container label {
     color: #242424;
     font-size: 15px;
     font-weight: 400;
 }
 .register-form-container label {
-    color: #242424;
+    /*color: #242424;*/
+    color: white;
     font-size: 15px;
     font-weight: 400;
 }
-.login-toggle-btn>a {
-    color: #242424;
-    float: right;
-    font-size: 15px;
-    transition: all 0.3s ease 0s;
-}
-.login-toggle-btn>a:hover {
-    color: #519f10;
-}
-.login-register-tab-list {
-    display: flex;
+.register-form-container h2.register-heading {
+    display: block;
     justify-content: center;
     margin-bottom: 10px;
-}
-.login-register-tab-list.nav a h4 {
-    font-size: 25px;
+    padding:20px 15px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    color: black;
+    font-size: 30px;
+    text-transform: uppercase;
     font-weight: 700;
-    margin: 0 20px;
-    text-transform: capitalize;
+    font-family: 'Open Sans', sans-serif;
     transition: all 0.3s ease 0s;
 }
-.login-register-tab-list.nav a {
-    position: relative;
+.register-form-container input[type="button"] {
+    background-color: #3899e6;
+    color: white;
+    width: 155px;
+    padding: 0;
+    margin-left: 15px;
 }
-.login-register-tab-list.nav a::before {
-    background-color: #454545;
-    bottom: 5px;
-    content: "";
-    height: 18px;
-    margin: 0 auto;
-    position: absolute;
-    right: -2px;
-    transition: all 0.4s ease 0s;
-    width: 1px;
+.register-form-container input[type="button"]:hover, .register-form-container input[type="button"]:focus  {
+	border:none;
+    background-color: #388EDB;
 }
-.login-register-tab-list.nav a:last-child::before {
-    display: none;
-}
-.login-register-tab-list.nav a.active h4,
-.login-register-tab-list.nav a h4:hover {
-    color: #519f10;
-}
+
 .login-form button {
     border: medium none;
     cursor: pointer;
 }
+.button-box a {
+    color: #2ea967;
+    float: right;
+    font-size: 15px;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+.button-box a:hover {
+    text-decoration: underline;
+}
 /*给class="button-box"的button按钮设置样式*/
 .button-box button {
-    background-color: #30c431;
+    background-color: #2e9f2f;
     border: medium none;
     border-radius: 3px;
     color: white;
@@ -4070,13 +4059,15 @@ h4.grand-totall-title span {
 }
 /*给class="button-box"的button按钮设置悬停时的样式*/
 .button-box button:hover {
-    background-color: #30B131;
+    background-color: #35af43;
+
     color: white;
 }
 
 .checkbox, .checkbox:hover, .checkbox:focus  {
 	border:none;
 }
+
 
 /*---------------------------
     8. Checkout page

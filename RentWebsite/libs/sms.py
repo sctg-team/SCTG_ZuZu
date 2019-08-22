@@ -1,9 +1,10 @@
+# urllib => 访问URL获取结果
 import urllib.request
 import urllib
 import json
 import logging
 
-logger = logging.getLogger('sms')
+logger = logging.getLogger('apis')
 
 
 def send_sms(mobile, captcha):
@@ -17,10 +18,10 @@ def send_sms(mobile, captcha):
     }
     # 还有我们准备用Post传的值，这里值用字典的形式
     values = {
-        "sid": "d82695a5d130ab2621ad01556be34a6c",
-        "token": "900d249a329a3543668c3667ba1995fa",
-        "appid": "eeea6de93f154f56ba5ab948a0877d06",
-        "templateid": "489089",
+        "sid": "9912e6ddea890c2eecbb352e77b71f29",
+        "token": "a4e45e55fe4774efca66d4ec0c262171",
+        "appid": "b8e33c80175748feb393d0fc8cd71657",
+        "templateid": "489683",
         "param": str(captcha),
         "mobile": mobile,
     }
@@ -48,4 +49,4 @@ def send_sms(mobile, captcha):
 
 if __name__ == "__main__":
     # 测试短信接口是否是管用
-    send_sms("17873550094", "123456")
+    send_sms("18874933429", "123456")

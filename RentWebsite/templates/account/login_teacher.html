@@ -27,9 +27,9 @@
         {% csrf_token %}
         <h2 class="form-signin-heading">登录</h2>
         <div class="login-wrap">
-                            <input type="text" name="username" class="form-control" placeholder="用户名" maxlength="150" required="" id="id_username">
-                            <input type="password" name="password" class="form-control" placeholder="密 码" maxlength="128" required="" id="id_password">
-                            <input type="text" name="captcha" class="captcha" placeholder="验证码"  error_messages="{'invalid': '验证码错误'}" required="" id="id_captcha">
+{#                            <input type="text" name="username" class="form-control" placeholder="用户名" maxlength="150" required="" id="id_username">#}
+{#                            <input type="password" name="password" class="form-control" placeholder="密 码" maxlength="128" required="" id="id_password">#}
+{#                            <input type="text" name="captcha" class="captcha" placeholder="验证码"  error_messages="{'invalid': '验证码错误'}" required="" id="id_captcha">#}
             {{ form.username }}
             {{ form.password }}
             {{ form.captcha }}

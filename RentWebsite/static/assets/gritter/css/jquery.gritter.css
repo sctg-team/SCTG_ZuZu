@@ -57,16 +57,18 @@
 	padding:0;
 	margin:0;
 	word-wrap:break-word;
+	color: #e70000;
 }
 .gritter-close {
 	display:none;
-	position:absolute;
-	top:5px;
-	left:3px;
+	/*position:absolute;*/
+	/*top:5px;*/
+	/*left:3px;*/
 	background:url(../images/gritter.png) no-repeat left top;
 	cursor:pointer;
 	width:30px;
 	height:30px;
+	float: right;
 }
 .gritter-title {
 	font-size:14px;
