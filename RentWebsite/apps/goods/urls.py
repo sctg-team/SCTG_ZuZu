@@ -5,8 +5,8 @@ from . import views
 urlpatterns = [
     # 首页
     # url(r'^$',views.index, name="index"),
-    # 题目列表
-    # url(r'^questions/$',views.QuestionsList.as_view(), name="questions"),
+    # 商品列表
+    url(r'^goods/$',views.GoodsList.as_view(), name="questions"),
     # 贡献题目
     # url(r'^question/$',views.Question.as_view(), name="question"),
     # 题目详情，捕获一个参数

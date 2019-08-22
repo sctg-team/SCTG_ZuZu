@@ -84,7 +84,7 @@ class QuestionView(LoginRequiredMixin,ListView):
 
 
 # class ApprovalView(LoginRequiredMixin, View):
-#     @method_decorator(permission_required('repo.can_change_question_status', raise_exception=True))
+#     @method_decorator(permission_required('goods.can_change_question_status', raise_exception=True))
 #     def get(self, request):
 #         # print()
 #         print(request.user.get_all_permissions())
@@ -100,7 +100,7 @@ class QuestionView(LoginRequiredMixin,ListView):
 # 限制所有请求
 class ApprovalView(LoginRequiredMixin, PermissionRequiredMixin, View):
     # 'app.权限'
-    permission_required = ('repo.can_change_question_status',)
+    permission_required = ('goods.can_change_question_status',)
     # 如果权限不够,是做跳转还是403, True=>403(默认False)
     raise_exception = True
 
@@ -112,7 +112,7 @@ class ApprovalView(LoginRequiredMixin, PermissionRequiredMixin, View):
 
 class ApprovalPassView(LoginRequiredMixin, PermissionRequiredMixin, View):
     # 'app.权限'
-    permission_required = ('repo.can_change_question_status',)
+    permission_required = ('goods.can_change_question_status',)
     # 如果权限不够,是做跳转还是403, True=>403(默认False)
     raise_exception = True
 

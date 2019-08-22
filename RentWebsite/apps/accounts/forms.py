@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import widgets
 from django.core.exceptions import ValidationError
-from .models import TestUser
+from .models import User
 from django.contrib.auth.hashers import check_password as auth_check_password
 
 """
@@ -19,9 +19,9 @@ class RegisterForm(forms.ModelForm):
                                                                      "error_messages": {"invalid": "验证码错误"}}))
 
     class Meta:
-        model = TestUser
         # fields和exclude必选选其一，exclude是排除哪些字段
         # 选择将TestUser中的哪些字段生成表单
+        model = User
         fields = ['username', 'mobile', 'password']
         widgets = {
             'username': widgets.TextInput(attrs={"class": "form-control", "placeholder": "请输入用户名"}),
@@ -39,8 +39,8 @@ class RegisterForm(forms.ModelForm):
     def clean_mobile(self):
         # self.cleaned_data.get("mobile") => 获取表单上提交过来的mobile
         # 在TestUser表里过滤出mobile的值等于表单提交过来的mobile值 => ret
-        # 注意，用get()方法一定要有返回值，否则会引发异常(但是为什么没报错？？？）
-        ret = TestUser.objects.filter(mobile=self.cleaned_data.get("mobile"))
+        # 注意，用get()方法一定要有返回值，否则会引发异常
+        ret = User.objects.filter(mobile=self.cleaned_data.get("mobile"))
         if not ret:
             return self.cleaned_data.get("mobile")
         else:
@@ -90,15 +90,15 @@ class LoginForm(forms.Form):
         password = self.cleaned_data['password']
         try:
             # 注意，用get()方法一定要有返回值，否则会引发异常（用try...except...自己引发异常）
-            user = TestUser.objects.get(username=username)
             # 用Django自带的auth_check_password检查密码是否正确
+            user = User.objects.get(username=username)
             return user, auth_check_password(password, user.password)
         except:
             return None, False
 
     def clean_username(self):
         print(self.cleaned_data.get("username"))
-        ret = TestUser.objects.filter(username=self.cleaned_data.get("username"))
+        ret = User.objects.filter(username=self.cleaned_data.get("username"))
         if ret:
             return self.cleaned_data.get("username")
         else:

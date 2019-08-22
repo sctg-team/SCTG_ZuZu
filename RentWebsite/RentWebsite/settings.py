@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'apps.apis',
     'apps.uc',
     'apps.goods',
+    'easy_thumbnails',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -136,10 +139,10 @@ STATICFILES_DIRS = [
 ]
 
 # 自定义用户model： "应用名.Model名
-AUTH_USER_MODEL = 'accounts.TestUser'
+AUTH_USER_MODEL = 'accounts.User'
 # 注意：如果扩展了User一定需要指定AUTH_USER_MODEL
 
-
+from django.contrib.admin import migrations
 # 配置日志
 LOG_ROOT = os.path.join(BASE_DIR, 'logs')
 if not os.path.exists(LOG_ROOT):
@@ -245,7 +248,7 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False
         },
-        'repo': {
+        'goods': {
             'handlers': ['repo_handler', 'console'],
             'level': 'DEBUG',
             'propagate': False
@@ -253,6 +256,7 @@ LOGGING = {
     }
 }
 
+# 验证码字体路径
 FontPath = os.path.join(BASE_DIR,"static/fonts/")
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -270,3 +274,95 @@ CACHES = {
         },
     },
 }
+
+# 媒体路径（缩略图的路径）
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# 单位：px
+THUMB_SIZE = 70
+if not os.path.exists(MEDIA_ROOT):
+    os.mkdir(MEDIA_ROOT)
+
+# CKEditor配置
+CKEDITOR_UPLOAD_PATH = "ckeditor_upload"
+# 简单配置一下富文本编辑器
+# CKEDITOR_CONFIGS = {
+#     'awesome_ckeditor': {
+#         'toolbar': 'Basic',
+#     },
+#     'default_ckeditor':{
+#         'toolbar': 'Full',
+#     },
+#     'default': {
+#         'toolbar': 'Full',
+#     },
+# }
+
+# 详细的配置：富文本编辑
+CKEDITOR_CONFIGS = {
+    'default': {
+        'update': ['Image', 'Update', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'],
+        'skin': 'moono',
+        # 'skin': 'office2013',
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+        'toolbar_YourCustomToolbarConfig': [
+            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'forms',
+             'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
+                       'HiddenField']},
+            '/',
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
+                       'Language']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert',
+             'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+            {'name': 'about', 'items': ['About']},
+            '/',  # put this to force next toolbar on new line
+            {'name': 'yourcustomtools', 'items': [
+                # put the name of your editor.ui.addButton here
+                'Preview',
+                'Maximize',
+            ]},
+        ],
+        'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
+        # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        # 'height': 291,
+        # 'width': '100%',
+        # 'filebrowserWindowHeight': 725,
+        # 'filebrowserWindowWidth': 940,
+        # 'toolbarCanCollapse': True,
+        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'tabSpaces': 4,
+        'extraPlugins': ','.join(
+            [
+                # your extra plugins here
+                'div',
+                'autolink',
+                'autoembed',
+                'embedsemantic',
+                'autogrow',
+                # 'devtools',
+                'widget',
+                'lineutils',
+                'clipboard',
+                'dialog',
+                'dialogui',
+                'elementspath'
+            ]),
+    }
+}
+
+# 修改上传文件大小（Default: 2621440 (i.e. 2.5 MB).）
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440*10

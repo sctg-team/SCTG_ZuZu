@@ -4,10 +4,12 @@ from django.contrib.auth.hashers import make_password
 from django.contrib import auth
 from django.http import JsonResponse
 from django.views.generic import View
-from .forms import RegisterForm,LoginForm,TestUser
+from .forms import RegisterForm,LoginForm,User
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
+# from RentWebsite.contect_processer import LoginForm,RegisterForm,TestUser
 import logging
+
 # 记日志
 logger = logging.getLogger('account')
 
@@ -42,7 +44,7 @@ class Register(View):
                 # 看手机验证码是否正确
                 if mobile_captcha == mobile_captcha_reids:
                     # 添加数据到User表,用Django自带的加密函数make_password给密码加密
-                    user = TestUser.objects.create(username=username, password=make_password(password))
+                    user = User.objects.create(username=username, password=make_password(password))
                     user.save()
                     ret['status'] = 200
                     ret['msg'] = "注册成功"
@@ -108,7 +110,7 @@ class Login(View):
         return render(request, "login.html", {"form": form, "msg": msg})
 
 
-# @login_required
+@login_required
 def index(requeset):
     return redirect(requeset, reverse('accounts:login'))
 

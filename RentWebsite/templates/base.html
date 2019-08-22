@@ -120,8 +120,8 @@
                                 <nav>
                                     <ul class="nav pull-right top-menu">
                                         <li class="top-hover">
-                                            {#                                <form action="{% url 'repo:questions' %}">#}
-                                            <form action="">
+                                            {#                                <form action="{% url 'goods:questions' %}">#}
+                                            <form action="{% url 'index2' %}">
                                                 <input type="text" class="form-control search" placeholder="Search"
                                                        name="search" id="search" value="{{ search_key }}">
                                             </form>
@@ -194,7 +194,6 @@
                                                     <li><a class="" href="http://127.0.0.1:8080/uc/collect/"> 我的收藏 </a></li>
                                                     <li><a class="" href="#myModal-1" data-toggle="modal"> 贡献题目 </a></li>
                                                     <li><a class="" href="http://127.0.0.1:8080/uc/contribut/">我的贡献 </a></li>
-                                                    <br>
                                                     <li><a class="" href="{% url 'accounts:logout' %}"> 退出 </a></li>
                                                 </ul>
                                             </li>
