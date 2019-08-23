@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^check_captcha/$', views.check_captcha, name='check_captcha'),
     # 测试页面404错误页面
     url(r'^error', views.error, name='error'),
-
+    # 修改头像
+    url(r'^change_avator/$', views.ChangeAvator.as_view(),name='change_avator'),
 ]

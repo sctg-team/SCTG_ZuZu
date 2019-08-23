@@ -33,8 +33,14 @@
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
     <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {#    <link rel="stylesheet" href="{% static 'css/style1.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'css/style1.css' %}">#}
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <style>
+        body {
+            font-size: 14px;
+        !important;
+        }
+    </style>
     {% block load_css %}
     {% endblock %}
 </head>
@@ -492,6 +498,7 @@
 </div>
 
 {% include 'login.html' %}
+
 
 <!-- all js here -->
 <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>

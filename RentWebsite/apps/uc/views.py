@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin,PermissionRequiredMixi
 from django.contrib import auth
 from django.views.generic import View,ListView
 from django.http import JsonResponse
+from apps.goods.models import Goods,GoodsCollection
 
 # Create your views here.
 def test(request):
@@ -56,7 +57,7 @@ class ChangePasswdView(LoginRequiredMixin,View):
                 ret_info = {"code": 400, "msg": "旧密码不正确"}
         return render(request, "uc_change_passwd.html", {"ret_info": ret_info})
 
-
+# 查询
 class AnswerView(LoginRequiredMixin,ListView):
     """
        没有特殊查询条件：Answers.objects.all()
@@ -80,7 +81,7 @@ class QuestionView(LoginRequiredMixin,ListView):
     template_name = 'uc_collect.html'
 
     def get_queryset(self):
-        return QuestionsCollection.objects.filter(user=self.request.user).filter(status='True')
+        return GoodsCollection.objects.filter(user=self.request.user).filter(status='True')
 
 
 # class ApprovalView(LoginRequiredMixin, View):
@@ -106,7 +107,7 @@ class ApprovalView(LoginRequiredMixin, PermissionRequiredMixin, View):
 
     def get(self, request):
         print(request.user.get_all_permissions())
-        questions = Questions.objects.exclude(status=True)
+        questions = Goods.objects.exclude(status=True)
         return render(request, "uc_approval.html", {"questions":questions})
 
 
@@ -118,8 +119,9 @@ class ApprovalPassView(LoginRequiredMixin, PermissionRequiredMixin, View):
 
     def get(self, request, id):
         try:
-            Questions.objects.filter(id=id).update(status=True)
+            Goods.objects.filter(id=id).update(status=True)
             ret = {"code":200, "msg":"成功"}
         except:
             ret = {"code":500, "msg":"失败"}
         return JsonResponse(ret)
+
