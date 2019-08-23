@@ -222,10 +222,20 @@ LOGGING = {
             'formatter': 'standard',
             'encoding': 'utf-8',
         },
-        'repo_handler': {
+        'goods_handler': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(LOG_ROOT, 'repo.log'),
+            'filename': os.path.join(LOG_ROOT, 'goods.log'),
+            'maxBytes': 1024 * 1024 * 5,
+            'backupCount': 5,
+            'formatter': 'standard',
+            'encoding': 'utf-8',
+        },
+        # 短信验证码的日志文件
+        'sms_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_ROOT, 'sms.log'),
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 5,
             'formatter': 'standard',
@@ -249,7 +259,12 @@ LOGGING = {
             'propagate': False
         },
         'goods': {
-            'handlers': ['repo_handler', 'console'],
+            'handlers': ['goods_handler', 'console'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+        'sms': {
+            'handlers': ['sms_handler', 'console'],
             'level': 'DEBUG',
             'propagate': False
         },

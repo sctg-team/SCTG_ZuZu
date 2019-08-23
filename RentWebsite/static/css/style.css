@@ -4017,18 +4017,19 @@ h4.grand-totall-title span {
     font-family: 'Open Sans', sans-serif;
     transition: all 0.3s ease 0s;
 }
-.register-form-container input[type="button"] {
-    background-color: #3899e6;
-    color: white;
+.register-form-container .captcha-btn {
+    background-color: #329df3;
+    border-color: #329df3;
+    color: #FFFFFF;
     width: 155px;
     padding: 0;
     margin-left: 15px;
 }
-.register-form-container input[type="button"]:hover, .register-form-container input[type="button"]:focus  {
-	border:none;
-    background-color: #388EDB;
+.register-form-container .captcha-btn:hover, .register-form-container .captcha-btn:focus, .register-form-container .captcha-btn:active, .register-form-container .captcha-btn.active {
+    background-color: #53bee6;
+    border-color: #53BEE6;
+    color: #FFFFFF;
 }
-
 .login-form button {
     border: medium none;
     cursor: pointer;

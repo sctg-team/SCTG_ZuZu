@@ -30,7 +30,7 @@ class User(AbstractUser):
                    (2, "隐藏"),
                     )
     realname = models.CharField(max_length=8, verbose_name="真实姓名")  # 需要出租或承租就需要完善本字段
-    sex = models.IntegerField("性别", choices=SEX_CHOICES,validators=[valid_sex])
+    sex = models.IntegerField("性别", choices=SEX_CHOICES,validators=[valid_sex],null=True)
     mobile = models.CharField(max_length=11, verbose_name="手机号")  # 需要出租或承租就需要完善本字段
     qq = models.CharField(max_length=11, verbose_name="QQ号")
     id_card = models.CharField(max_length=18, verbose_name="身份证号")  # 需要出租或承租就需要完善本字段

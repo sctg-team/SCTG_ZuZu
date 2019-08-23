@@ -7,7 +7,6 @@ from django.views.generic import View
 from .forms import RegisterForm,LoginForm,User
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
-# from RentWebsite.contect_processer import LoginForm,RegisterForm,TestUser
 import logging
 
 # 记日志
@@ -39,7 +38,6 @@ class Register(View):
                 mobile = form.cleaned_data["mobile"]
                 mobile_captcha = form.cleaned_data["mobile_captcha"]
                 # 手机验证码只需要存一段时间，为了减少占用用Redis缓存手机验证码
-                # cache.get(mobile)???
                 mobile_captcha_reids = cache.get(mobile)
                 # 看手机验证码是否正确
                 if mobile_captcha == mobile_captcha_reids:
@@ -86,7 +84,7 @@ class Login(View):
         # 表单数据绑定
         form = LoginForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data["username"]
+            username = form.cleaned_data["username_login"]
             captcha = form.cleaned_data["captcha"]
             session_captcha_code = request.session.get("captcha_code","")
             logger.debug("登录提交验证码:{}-{}".format(captcha,session_captcha_code))

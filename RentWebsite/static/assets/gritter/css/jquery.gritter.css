@@ -57,8 +57,11 @@
 	padding:0;
 	margin:0;
 	word-wrap:break-word;
-	color: #e70000;
+	color:#eee;
+	font-size: 11px;
+	font-family:verdana;
 }
+
 .gritter-close {
 	display:none;
 	/*position:absolute;*/
