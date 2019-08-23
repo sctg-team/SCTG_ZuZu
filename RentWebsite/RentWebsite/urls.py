@@ -24,12 +24,10 @@ from django.contrib.staticfiles.views import serve
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$',include('apps.account.urls',namespace="account")),
-    url(r'^$',views.logintest,name="logintest"),
-
+    url(r'^$',views.index2 ,name="index2"),
     url(r'^base/$', views.base,name='base'),
     url(r'^logtest/$', views.logtest, name='logtest'),
     url(r'^index/',views.index,name='index1'),
-    url(r'^index2/',views.index2,name='index2'),
     # 用户登录注册
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
     # 接口

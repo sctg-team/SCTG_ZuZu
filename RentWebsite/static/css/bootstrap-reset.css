@@ -1,11 +1,11 @@
 /*anchor*/
-a {
-    color: #667fa0;
-}
+/*a {*/
+    /*color: #667fa0;*/
+/*}*/
 
-a:hover {
-    color: #2A3542;
-}
+/*a:hover {*/
+    /*color: #2A3542;*/
+/*}*/
 
 /*panel*/
 .panel {
@@ -96,16 +96,10 @@ a:hover {
 }
 
 .modal-header {
-    background: #fab341;
-    color: #fff;
-    border-radius: 5px 5px 0 0;
+    background: #20c997;
     -webkit-border-radius: 5px 5px 0 0;
     border-bottom: none;
 }
-
-/*.modal-header .close {*/
-    /*margin-top: 0;*/
-/*}*/
 
 /*text input*/
 

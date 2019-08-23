@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 添加应用到INSTALLED_APPS
-    'apps',
     'apps.accounts',
     'apps.apis',
     'apps.uc',
@@ -75,7 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'RentWebsite.context_processors.valid_difficulty',
+                'RentWebsite.context_processors.login_data',
             ],
         },
     },
@@ -168,9 +167,10 @@ LOGGING = {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(LOG_ROOT, 'all.log'),     # 日志输出文件
-            'maxBytes': 1024*1024*5,       # 文件大小
-            'backupCount': 5,              # 备份份数
-            'formatter':'standard',        # 使用哪种formatters日志格式
+            'maxBytes': 1024*1024*5,         # 文件大小
+            'backupCount': 5,                # 备份份数
+            'formatter':'standard',          # 使用哪种formatters日志格式
+            'encoding': 'utf-8',              # 文件编码格式
         },
         'error': {
             'level':'ERROR',
@@ -179,7 +179,8 @@ LOGGING = {
             'maxBytes':1024*1024*5,
             'backupCount': 5,
             'formatter':'standard',
-            },
+            'encoding': 'utf-8',
+        },
         'console':{
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -192,7 +193,8 @@ LOGGING = {
             'maxBytes': 1024*1024*5,
             'backupCount': 5,
             'formatter':'standard',
-            },
+            'encoding': 'utf-8',
+        },
         'scripts_handler': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
@@ -200,6 +202,7 @@ LOGGING = {
             'maxBytes': 1024*1024*5,
             'backupCount': 5,
             'formatter':'standard',
+            'encoding': 'utf-8',
             },
         'account_handler': {
             'level': 'DEBUG',
@@ -208,6 +211,7 @@ LOGGING = {
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 5,
             'formatter': 'standard',
+            'encoding': 'utf-8',
         },
         'apis_handler': {
             'level': 'DEBUG',
@@ -225,6 +229,7 @@ LOGGING = {
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 5,
             'formatter': 'standard',
+            'encoding': 'utf-8',
         }
     },
     'loggers': {
@@ -255,6 +260,20 @@ LOGGING = {
 FontPath = os.path.join(BASE_DIR,"static/fonts/")
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+
+
+CACHES = {
+    'default': {
+        # BACKEND配置缓存后端为RedisCache
+        'BACKEND': 'django_redis.cache.RedisCache',
+        # LOCATION配置redis服务器地址
+        'LOCATION': 'redis://192.168.0.178:6379',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": "rootroot",
+        },
+    },
+}
 
 # 媒体路径（缩略图的路径）
 MEDIA_URL = '/media/'

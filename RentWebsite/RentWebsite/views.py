@@ -19,7 +19,6 @@ def index(request):
 
 # @login_required
 def index2(request):
-
     return render(request, "repo/index2.html")
 
 def my404(request):
