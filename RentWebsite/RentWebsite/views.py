@@ -23,10 +23,3 @@ def index2(request):
 
 def my404(request):
     return render(request, 'repo/404.html')
-
-def test(request):
-    return render(request, 'account/login_teacher.html')
-
-
-def logintest(request):
-    return render(request,'account/login_teacher.html')

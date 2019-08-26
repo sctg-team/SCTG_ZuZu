@@ -25,9 +25,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$',include('apps.account.urls',namespace="account")),
     url(r'^$',views.index2 ,name="index2"),
-    url(r'^base/$', views.base,name='base'),
-    url(r'^logtest/$', views.logtest, name='logtest'),
-    url(r'^index/',views.index,name='index1'),
     # 用户登录注册
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
     # 接口
@@ -40,7 +37,11 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$',  serve, {"document_root": MEDIA_ROOT}),
     # ckeditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^test/$', views.test, name='test'),
+
+
+    url(r'^base/$', views.base,name='base'),
+    url(r'^logtest/$', views.logtest, name='logtest'),
+    url(r'^index/',views.index,name='index1'),
 ]
 # static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

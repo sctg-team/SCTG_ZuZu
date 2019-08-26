@@ -20,7 +20,9 @@ from . import views
 
 urlpatterns = [
     # 注册
+    # 基于类的视图
     url(r'^register/$', views.Register.as_view(), name="register"),
+    # 模板视图，可以直接返回一个html，不用写视图
     # url(r'register/$', TemplateView.as_view(template_name='account/register_teacher.html'), name="register"),
     # 登录
     url(r'login/$', views.Login.as_view(), name="login"),

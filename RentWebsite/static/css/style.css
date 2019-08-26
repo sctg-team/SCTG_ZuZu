@@ -3910,7 +3910,7 @@ h4.grand-totall-title span {
     width: 400px;
 }
 .modal-header h4.modal-title {
-    font-weight: 300;
+    font-weight: 700;
     font-family: 'Open Sans', sans-serif;
     margin-left: 45%;
     color: white;
@@ -3991,15 +3991,17 @@ h4.grand-totall-title span {
     width: 17px;
 }
 
-.login-form-container label {
-    color: #242424;
-    font-size: 15px;
+.login-form-container p {
+    color: red;
+    font-size: 20px;
     font-weight: 400;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
 }
 .register-form-container label {
-    /*color: #242424;*/
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
 }
 .register-form-container h2.register-heading {
@@ -4011,7 +4013,7 @@ h4.grand-totall-title span {
     border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     color: black;
-    font-size: 30px;
+    font-size: 22px;
     text-transform: uppercase;
     font-weight: 700;
     font-family: 'Open Sans', sans-serif;
@@ -4026,7 +4028,7 @@ h4.grand-totall-title span {
     margin-left: 15px;
 }
 .register-form-container .captcha-btn:hover, .register-form-container .captcha-btn:focus, .register-form-container .captcha-btn:active, .register-form-container .captcha-btn.active {
-    background-color: #53bee6;
+    background-color: #56c5ee;
     border-color: #53BEE6;
     color: #FFFFFF;
 }
@@ -4037,7 +4039,6 @@ h4.grand-totall-title span {
 .button-box a {
     color: #2ea967;
     float: right;
-    font-size: 15px;
     transition: all 0.3s ease 0s;
     text-decoration: none;
 }
@@ -4061,7 +4062,6 @@ h4.grand-totall-title span {
 /*给class="button-box"的button按钮设置悬停时的样式*/
 .button-box button:hover {
     background-color: #35af43;
-
     color: white;
 }
 
@@ -4069,6 +4069,17 @@ h4.grand-totall-title span {
 	border:none;
 }
 
+/* gritter */
+.gritter-close {
+    left: auto !important;
+    right: 3px !important;
+}
+.gritter-item p {
+	color:#eee;
+	font-size: 11px;
+	font-family:verdana;
+    text-shadow:1px 1px 0 #000;
+}
 
 /*---------------------------
     8. Checkout page

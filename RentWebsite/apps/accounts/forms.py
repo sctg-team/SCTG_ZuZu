@@ -20,7 +20,7 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         # fields和exclude必选选其一，exclude是排除哪些字段
-        # 选择将TestUser中的哪些字段生成表单
+        # 选择将User中的哪些字段生成表单
         model = User
         fields = ['username', 'mobile', 'password']
         widgets = {
@@ -69,7 +69,7 @@ class RegisterForm(forms.ModelForm):
 ModelForm对于unique字段会检查是否已经存在，如果存在，is_valid结果会为False
 所以登录功能不适合继承自ModelForm，只能继承自Form自定义表单元素
 """
-# 用户登录
+# 用户登录表单
 class LoginForm(forms.Form):
     username_login = forms.CharField(label="用户名", max_length="24",
                                widget=widgets.TextInput(attrs={"class": "form-control",
@@ -84,23 +84,24 @@ class LoginForm(forms.Form):
                                                                    "placeholder": "密码"}))
 
     def check_password(self):
-        # print('check password')
         # 接收从表单传过来的用户名和密码
+        """
+        问题：HTML上的是context_processor传过去的表单，可这里收不到HTML提交的数据
+        已解决，给form表单定义一个id，通过ajax里的data: $("#id").serialize()传过来
+        """
         username = self.cleaned_data['username_login']
         password = self.cleaned_data['password_login']
         try:
             # 注意，用get()方法一定要有返回值，否则会引发异常（用try...except...自己引发异常）
-            # 用Django自带的auth_check_password检查密码是否正确
             user = User.objects.get(username=username)
+            # 用Django自带的auth_check_password检查密码是否正确，它可以对明文和密文进行对比
             return user, auth_check_password(password, user.password)
         except:
             return None, False
 
     def clean_username(self):
-        print(self.cleaned_data.get("username_login"))
         ret = User.objects.filter(username=self.cleaned_data.get("username_login"))
         if ret:
             return self.cleaned_data.get("username_login")
         else:
             raise ValidationError("用户名或密码不正确")
-
