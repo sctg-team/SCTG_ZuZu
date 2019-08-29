@@ -28,7 +28,7 @@
                         </label>
 
                         <div class="button-box">
-                            <button class="btn-block" style="height:50px;" type="submit" id="register_btn">注册</button>
+                            <button class="btn-block" style="height:50px;" type="button" id="register_btn">注册</button>
                             <span class="button-box pull-right" style="line-height: 3;"> 已有帐号，请 <a
                                     href="{% url 'accounts:login' %}"> 登录 </a></span>
                         </div>
@@ -43,11 +43,12 @@
             </label>
         </div>
     </div>
+
 {% endblock %}
 
 {% block load_js %}
     <script type="text/javascript" src="{% static 'assets/gritter/js/jquery.gritter.js' %}"></script>
-    <script>
+        <script>
         //发送短信验证码的点击事件
         function sendmessage(obj, second) {
             var telRegex = /(13|14|15|17|18)\d{9}/;

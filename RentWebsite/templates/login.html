@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="#">
+                    <form action="{% url "index2" %}">
                         {% csrf_token %}
                         {{ login_form.username }}
                         {{ login_form.password }}
@@ -42,7 +42,7 @@
                                 <input type="checkbox" value="remember-me">记住密码
                                 <a href="#">忘记密码?</a>
                             </div>
-                            <button class="btn-block" style="height:50px;" type="submit">登录</button>
+                            <button class="btn-block" style="height:50px;" type="button">登录</button>
                             <p class="msg"></p>
                             {% if msg %}
                                 <div class="alert aler-block alert-danger fade in">
@@ -105,5 +105,9 @@
                 }
             });
         };
+
+        function login() {
+
+        }
     </script>
 {% endblock %}

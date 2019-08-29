@@ -283,6 +283,10 @@ THUMB_SIZE = 70
 if not os.path.exists(MEDIA_ROOT):
     os.mkdir(MEDIA_ROOT)
 
+# 修改上传文件大小（Default: 2621440 (i.e. 2.5 MB).）
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440*10
+
+
 # CKEditor配置
 CKEDITOR_UPLOAD_PATH = "ckeditor_upload"
 # 简单配置一下富文本编辑器
@@ -364,5 +368,4 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-# 修改上传文件大小（Default: 2621440 (i.e. 2.5 MB).）
-DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440*10
+

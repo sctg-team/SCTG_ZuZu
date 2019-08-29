@@ -25,7 +25,7 @@ def get_mobile_captcha(request):
             raise ValueError('发送短信失败')
     except Exception as ex:
         logger.error(ex)
-        ret = {"code": 400, "msg": "验证码发送失败！"}
+        ret = {"code": 400, "msg": "验证码发送失败！123"}
     return JsonResponse(ret)
 
 

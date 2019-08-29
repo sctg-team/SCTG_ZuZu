@@ -80,7 +80,8 @@ class Login(View):
         # request.session["next"] = request.GET.get('next', reverse('account:login'))
         # 设置下一跳转地址(如果get有next,如果没有跳转到repo: index)
         request.session["next"] = request.GET.get('next', reverse('index2'))
-        return render(request, "login.html", {"form": form})
+        # return render(request, "login.html", {"form": form})
+        return render(request, "account/login_teacher.html", {"form": form})
 
     def post(self, request):
         # 表单数据绑定
@@ -107,8 +108,8 @@ class Login(View):
         else:
             msg = "表单数据不完整"
             logger.error(msg)
-        return render(request, "login.html", {"form": form, "msg": msg})
-
+        # return render(request, "login.html", {"form": form, "msg": msg})
+        return JsonResponse(msg)
 
 @login_required
 def index(requeset):
@@ -117,5 +118,5 @@ def index(requeset):
 
 def logout(request):
     auth.logout(request)
-    return redirect(reverse("accounts:login"))
+    return redirect(reverse("index2"))
 
