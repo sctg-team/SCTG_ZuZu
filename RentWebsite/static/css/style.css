@@ -282,7 +282,7 @@ textarea:focus {
 .input-group.divcenter.input-group .form-control {
     /*padding-left: 0px*/
     position: relative;
-    font-size: 16px;
+    font-size: 14px;
     height: auto;
     padding: 10px;
     -webkit-box-sizing: border-box;
@@ -3932,19 +3932,20 @@ h4.grand-totall-title span {
     text-align: left;
     -webkit-border-radius: 10px;
 }
-/*.login-text {*/
-    /*margin-bottom: 30px;*/
-    /*text-align: center;*/
-/*}*/
-/*.login-text h2 {*/
-    /*color: #444;*/
-    /*font-size: 30px;*/
-    /*margin-bottom: 5px;*/
-    /*text-transform: capitalize;*/
-/*}*/
-/*.login-text span {*/
-    /*font-size: 15px;*/
-/*}*/
+.login-text {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.login-text h2 {
+    color: #444;
+    font-size: 30px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+.login-text span {
+    font-size: 15px;
+}
+
 /*登录注册输入框的样式*/
 .login-form-container input {
     background-color: transparent;

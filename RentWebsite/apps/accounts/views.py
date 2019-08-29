@@ -119,7 +119,6 @@ class Login(View):
         return JsonResponse(login_ret)
 
 
-
 @login_required
 def index(request):
     return redirect(request, reverse('accounts:login'))

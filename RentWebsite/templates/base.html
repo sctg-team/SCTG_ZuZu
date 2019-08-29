@@ -33,9 +33,16 @@
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
     <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <link href="{% static 'assets/font-awesome/css/font-awesome.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css">
+{#    <link rel="stylesheet" href="{% static 'css/style1.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <style>
+        body {
+            font-size: 14px;
+        !important;
+        }
+    </style>
     {% block load_css %}
     {% endblock %}
 </head>
@@ -189,12 +196,12 @@
                                                 </a>
                                                 <ul class="dropdown-menu">
                                                     <div class="log-arrow-up"></div>
-                                                    {#                                            <li><a class="" href="{% url 'uc' %}"> 个人资料 </a></li>#}
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/change_passwd/">修改密码 </a></li>
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/answer/"> 我的回答 </a></li>
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/collect/"> 我的收藏 </a></li>
-                                                    <li><a class="" href="#myModal-1" data-toggle="modal"> 贡献题目 </a></li>
-                                                    <li><a class="" href="http://127.0.0.1:8080/uc/contribut/">我的贡献 </a></li>
+                                                    <li><a class="" href="{% url 'uc:profile' %}"> 个人资料 </a></li>
+                                                    <li><a class="" href="{% url 'uc:change_passwd' %}">修改密码 </a></li>
+                                                    <li><a class="" href="{% url 'uc:answer' %}"> 已租物品 </a></li>
+                                                    <li><a class="" href="{% url 'uc:collect' %}"> 我的收藏 </a></li>
+                                                    <li><a class="" href="#myModal-1" data-toggle="modal"> 出租物品 </a></li>
+                                                    <li><a class="" href="{% url 'uc:contribute' %}">我的出租 </a></li>
                                                     <li><a class="" href="{% url 'accounts:logout' %}"> 退出 </a></li>
                                                 </ul>
                                             </li>
@@ -203,7 +210,6 @@
                                         {% else %}
                                             <div class="header-currency">
                                                 <span class="digit"><a href="#myModal-login" data-toggle="modal">登录</a></span>
-{#                                                <span class="digit"><a href="{% url 'accounts:login' %}">登录</a></span>#}
                                                 <b>|</b>
                                                 <span class="digit"><a href="{% url 'accounts:register' %}">注册</a></span>
                                             </div>
@@ -493,6 +499,7 @@
 </div>
 
 {% include 'login.html' %}
+
 
 <!-- all js here -->
 <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>

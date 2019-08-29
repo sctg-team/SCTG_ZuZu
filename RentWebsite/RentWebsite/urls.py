@@ -24,6 +24,7 @@ from django.contrib.staticfiles.views import serve
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$',include('apps.account.urls',namespace="account")),
+    # 首页
     url(r'^$',views.index2 ,name="index2"),
     # 用户登录注册
     url(r'^accounts/',include('apps.accounts.urls',namespace='accounts')),
@@ -38,10 +39,12 @@ urlpatterns = [
     # ckeditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
-
-    url(r'^base/$', views.base,name='base'),
+    # base页面
+    url(r'^base/$', views.base, name='base'),
+    # 日志测试
     url(r'^logtest/$', views.logtest, name='logtest'),
-    url(r'^index/',views.index,name='index1'),
+    # 首页
+    url(r'^index/', views.index, name='index1'),
 ]
 # static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
